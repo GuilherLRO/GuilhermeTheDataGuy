@@ -1,0 +1,10 @@
+services:
+  ubuntu_test:
+    image: ubuntu:latest
+    container_name: ubuntu_container
+    volumes:
+      - ./synced:/synced
+    working_dir: /synced
+    command: >
+      bash -c "apt-get update && tail -f /dev/null"
+    tty: true
