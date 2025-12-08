@@ -1,0 +1,223 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+*.manifest
+*.spec
+pip-log.txt
+pip-delete-this-directory.txt
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+cover/
+*.log
+*.pot
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual Environments
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+.venv/
+virtualenv/
+.virtualenv/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+*.env
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb_checkpoints/
+*/.ipynb_checkpoints/*
+
+# Streamlit
+.streamlit/
+streamlit_cache/
+
+# IDE - VSCode
+.vscode/
+*.code-workspace
+.history/
+
+# IDE - PyCharm
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+# IDE - Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# IDE - Vim
+*.swp
+*.swo
+*~
+.vim/
+
+# Media files (audio/video)
+*.mov
+*.mp4
+*.avi
+*.mkv
+*.ogg
+*.mp3
+*.wav
+*.flac
+*.aac
+*.m4v
+*.webm
+*.mpeg
+*.mpg
+*.3gp
+*.flv
+*.f4v
+
+# Large image files
+*.svg
+*.psd
+*.ai
+*.eps
+*.raw
+*.cr2
+*.nef
+*.orf
+*.sr2
+*.dng
+*.bmp
+*.tiff
+*.tif
+
+# Large data files
+*.db
+*.sqlite
+*.sqlite3
+*.dump
+*.backup
+*.bak
+*.tar
+*.tar.gz
+*.zip
+*.rar
+*.7z
+*.gz
+*.bz2
+*.xz
+*.iso
+*.dmg
+*.img
+
+# Audio/Video transcription outputs (uncomment if temporary)
+# *_transcription.txt
+# transcription_*.txt
+# *.txt (if transcription outputs)
+
+# Docker
+*.log
+docker-compose.override.yml
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.swp
+*~
+.cache/
+
+# OS generated files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Large binary/data files
+*.bin
+*.dat
+*.data
+*.h5
+*.hdf5
+*.pkl
+*.pickle
+*.model
+*.weights
+*.ckpt
+*.pt
+*.pth
+*.pb
+*.onnx
+*.tflite
+*.protobuf
+
+# Large datasets (uncomment if you have large data files)
+# *.csv
+# *.tsv
+*.parquet
+*.feather
+*.arrow
+*.jsonl
+*.json.gz
+
+# Project specific
+autoagent_test/synced/
+docker_test_env/synced/
+*.egg-info/
+
+# Note: Git doesn't support size-based filtering in .gitignore
+# If you have large files that aren't covered by patterns above,
+# add them explicitly or use git-lfs for large files
+
