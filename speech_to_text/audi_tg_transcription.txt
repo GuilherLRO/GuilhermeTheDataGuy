@@ -1,0 +1,113 @@
+
+================================================================================
+File: 4960914555204011256.ogg
+================================================================================
+
+[00:00:00.000 --> 00:00:02.000] para amanhã o vídeo, vamos lá
+[00:00:02.000 --> 00:00:04.000] a ideia principal aqui nessa semana
+[00:00:04.000 --> 00:00:10.000] eu foquei em entender como fazer o labeling
+[00:00:10.000 --> 00:00:14.000] já o nome dos dados
+[00:00:14.000 --> 00:00:18.000] para que eu pudesse fazer o retrieval
+[00:00:18.000 --> 00:00:20.000] e gerar as respostas
+[00:00:20.000 --> 00:00:26.000] tem que explicar isso de uma melhor forma
+[00:00:26.000 --> 00:00:29.000] e aí eu utilizei vários modelos locais
+[00:00:29.000 --> 00:00:33.000] de diferentes tamanhos e complexidades
+[00:00:33.000 --> 00:00:35.000] e custos computacional
+[00:00:35.000 --> 00:00:38.000] gerando várias métricas
+[00:00:38.000 --> 00:00:41.000] basicamente a curaça, a prestigio e o recal e a FI1
+[00:00:41.000 --> 00:00:45.000] e depois comparei com o GPT-5 mini
+[00:00:45.000 --> 00:00:49.000] para alguns modelos bem pequenos
+[00:00:49.000 --> 00:00:51.000] quase que aleatório assim
+[00:00:51.000 --> 00:00:53.000] não tem ganho nenhum
+[00:00:53.000 --> 00:00:56.000] o deles, eu podia até ter usado outras métricas
+[00:00:56.000 --> 00:00:58.000] mas fica em 50%
+[00:00:58.000 --> 00:01:00.000] então assim não ganhei nenhum
+[00:01:00.000 --> 00:01:02.000] alguns são até melhores
+[00:01:02.000 --> 00:01:07.000] os melhores são o minstrangestruck de 7 bilhões
+[00:01:07.000 --> 00:01:12.000] de parâmetros e o lama 3.1 de 8 bilhões
+[00:01:12.000 --> 00:01:17.000] a questão é que o lama 3.1 tem uma curaça melhor
+[00:01:17.000 --> 00:01:20.000] e também roda mais rápido
+[00:01:20.000 --> 00:01:25.000] então ficou sendo aí meu melhor resultado
+[00:01:25.000 --> 00:01:31.000] achei curioso que o GPT-5 mini foi muito melhor ainda
+[00:01:31.000 --> 00:01:35.000] e aí eu fiquei na dúvida, porque ele erra tanto
+[00:01:35.000 --> 00:01:38.000] e aí eu até fiz o majority vault
+[00:01:38.000 --> 00:01:44.000] e depois tentei pegar só aqueles que o modelo era unânime
+[00:01:44.000 --> 00:01:47.000] e mesmo naqueles que o modelo é unânime
+[00:01:47.000 --> 00:01:51.000] a curaça ainda fica em 84%
+[00:01:51.000 --> 00:01:53.000] não melhora muito
+[00:01:53.000 --> 00:01:55.000] então apesar de que melhora
+[00:01:55.000 --> 00:01:57.000] não melhora muito
+[00:01:57.000 --> 00:02:05.000] então esse valor menor não vendeu variabilidade no modelo
+[00:02:05.000 --> 00:02:13.000] então tive hipótese, talvez isso seja relacionado a algum conhecimento adicional
+[00:02:13.000 --> 00:02:17.000] que o modelo já tem
+[00:02:17.000 --> 00:02:21.000] como isso é feito por humanos
+[00:02:21.000 --> 00:02:26.000] talvez tenha algum conhecimento fora o contexto
+[00:02:26.000 --> 00:02:32.000] fora o que não está exatamente no contexto que é necessário
+[00:02:32.000 --> 00:02:40.000] então minha hipótese é que quando eu rodasse no data set
+[00:02:40.000 --> 00:02:44.000] artificialmente, esses resultados seriam melhores
+[00:02:44.000 --> 00:02:49.000] melhores nos modelos que performam bem
+[00:02:49.000 --> 00:02:54.000] e os modelos que performam quase cada formulatório é continuar igual
+[00:02:54.000 --> 00:02:56.000] e foi o que aconteceu
+
+================================================================================
+File: 4960914555204011258.ogg
+================================================================================
+
+[00:00:00.000 --> 00:00:13.240] Realmente o que eu observo, os modelos que tinham resultado praticamente nulo de 50%
+[00:00:13.240 --> 00:00:23.400] praticamente era a mesma coisa do prejitor aleatório, continuam muito ruins, continuam
+[00:00:23.400 --> 00:00:29.280] bem próximos de 50%, enquanto que até mais próximos de 50% que os outros em média,
+[00:00:29.280 --> 00:00:41.600] mais os modelos que se mostravam ter algum valor preditivo, como o Lama 3.1,
+[00:00:41.600 --> 00:00:52.960] o Minstral e o 3.2, todos eles melhoram, melhoram significativamente. Em acuraça,
+[00:00:52.960 --> 00:01:01.880] o que corrobora com essa ideia. E aí para tentar melhorar ainda mais esse valor,
+[00:01:01.880 --> 00:01:10.480] eu rodei também, agora com o melhor modelo, que foi esse de 8 bilhões de parámetros,
+[00:01:10.480 --> 00:01:19.280] rodei também as três vezes para ver como é que essa questão fica com o Majority Volt e com o
+[00:01:19.280 --> 00:01:33.719] da unanimidade. E aí eu percebo que realmente melhorou bastante, então dá para ter um resultado
+[00:01:33.719 --> 00:01:45.159] bem bem interessante com esse modelo, o Pencil Ostec, que eu roubo logo. E aí,
+[00:01:45.679 --> 00:01:51.799] e também assim, não vou rodar sempre porque tem um custo computacional, eu posso usar a API do Grok,
+[00:01:51.799 --> 00:02:02.719] então por exemplo tinha a possibilidade de usar o GPT-5, mas os custos, tem a questão do seu Pencil Ostec
+[00:02:02.719 --> 00:02:09.280] e é muito mais barato usar esse de 8 bilhões de parâmetros, pela estimativa que eu fiz,
+[00:02:09.280 --> 00:02:21.360] eu acho que é mais barato usar o Lama 3.1, então ainda que eu rode três vezes,
+[00:02:21.360 --> 00:02:33.159] ainda sabe mais barato utilizar o Lama 3.1. E como a ideia é fazer benchmark para testar o Retrieval,
+[00:02:33.159 --> 00:02:41.800] eu estou pensando em utilizar como minha base, como selecionar sempre esses 210 mil,
+[00:02:41.800 --> 00:02:52.960] e eu pego lá 10 mil por exemplo, rodo três vezes e eu apenas utilizo nessa base os que o modelo
+[00:02:52.960 --> 00:02:59.280] concordou, talvez até eu que o modelo foi o Nânimo, porque eu tenho certeza que a informação relevante
+[00:02:59.280 --> 00:03:07.520] do modelo está naquele contexto, e aí eu posso me preocupar em realizar os testes e tendo uma
+[00:03:07.520 --> 00:03:17.120] certa garantia que eu estou isolando o efeito da relevância do Retrieval, não está sendo um erro
+[00:03:17.120 --> 00:03:19.840] que está vindo do modelo de linguagem.
+
+================================================================================
+File: 4960914555204011259.ogg
+================================================================================
+
+[00:00:00.000 --> 00:00:07.160] e usando essa estratégia, até mesmo com um modelo de 2 bilhões de parâmetros né, que assim é nem sei se consigo
+[00:00:08.080 --> 00:00:10.080] usar ele com API porque
+[00:00:10.919 --> 00:00:12.919] já é tão pequeno assim talvez
+[00:00:14.759 --> 00:00:21.000] é realmente até porque você consegue usar localmente, você já tem resultados bem interessantes
+[00:00:21.719 --> 00:00:22.879] então
+[00:00:22.879 --> 00:00:26.679] esses são os próximos passos, você pegar esses conhecimentos, a gente escolher um modelo
+[00:00:27.039 --> 00:00:30.800] na última semana para o embed, escolher um modelo agora para
+[00:00:31.640 --> 00:00:34.320] rodar localmente e agora vou tentar escolher
+[00:00:35.480 --> 00:00:38.039] variar, principalmente a questão do tamanho do chunk
+[00:00:39.759 --> 00:00:41.759] e aí eu vou
+[00:00:42.159 --> 00:00:46.439] usar esses dois modelos, o de 8B e o de 2B né
+[00:00:48.239 --> 00:00:52.480] com a base perfiltrada e ver quais são os resultados que eu vou obter
+
+================================================================================
+File: 4960914555204011261.ogg
+================================================================================
+
+[00:00:00.000 --> 00:00:07.000] Eu vou pegar esse modelo de agora, usar com a API Batch, consigo usar pelo Grok, né?
+[00:00:07.000 --> 00:00:19.000] Pra escolher, não sei lá, são 5 mil, mil, alguma quantidade desses artigos, né?
+[00:00:19.000 --> 00:00:28.000] Por exemplo, todas as respostas, ele seja unânime, pra garantir que aquela resposta realmente tá naquele contexto
+[00:00:28.000 --> 00:00:35.000] Que o modelo é capaz, o modelo que faz as labels é capaz de entender aquilo
+[00:00:35.000 --> 00:00:40.000] E aí, pegar esse contexto, vou separar em chunks de tamanhos diferentes
+[00:00:40.000 --> 00:00:46.000] E calcular os mesmos parâmetros, só que agora, variando, né?
+[00:00:46.000 --> 00:00:54.000] O chunk e com o modelo que faz as marcações, né? O classificador, pra tentar ver quais são os resultados
+
+================================================================================
+File: 4960914555204011263.ogg
+================================================================================
+
+[00:00:00.000 --> 00:00:07.640] E aí eu tô, espero que semana que vem, ter pelo menos uma demonstração de se funcionando, né?
+[00:00:07.640 --> 00:00:13.480] Pra que, mesmo de nos anunciar um modelo grande, pra que eu possa entender onde quer chegar,
+[00:00:13.480 --> 00:00:19.519] ter um benchmark e aí poder começar a trabalhar em fazer modelos menores, especialistas nesse tipo de atividade.
