@@ -24,8 +24,11 @@ Usage:
     # Run with 4 parallel workers (faster)
     python run_validation.py --parallel 4 --limit 20
     
+    # Save progress every 5 rows (batch saving)
+    python run_validation.py --batch-size 5 --limit 50
+    
     # Combine options
-    python run_validation.py -m gpt-4o-mini -p 5 -l 50 -f csv -o results.csv
+    python run_validation.py -m gpt-4o-mini -p 5 -l 50 -f csv -o results.csv -b 10
 """
 
 from pathlib import Path
@@ -75,6 +78,12 @@ def main():
         default=1,
         help="Number of parallel workers (default: 1 = sequential)"
     )
+    parser.add_argument(
+        "--batch-size", "-b",
+        type=int,
+        default=10,
+        help="Save progress every N rows (default: 10, 0 = save only at end)"
+    )
     
     args = parser.parse_args()
     
@@ -83,20 +92,7 @@ def main():
     input_path = script_dir / args.input if not Path(args.input).is_absolute() else Path(args.input)
     output_path = script_dir / args.output if not Path(args.output).is_absolute() else Path(args.output)
     
-    print("=" * 60)
-    print("LLM-Based Data Validation")
-    print("=" * 60)
-    print(f"Input file:   {input_path}")
-    print(f"Output file:  {output_path}")
-    print(f"Model:        {args.model}")
-    print(f"Row limit:    {args.limit or 'All rows'}")
-    print(f"Format:       {args.format}")
-    print(f"Skip existing: {not args.no_skip}")
-    print(f"Parallel:      {args.parallel} worker(s)")
-    print("=" * 60)
-    print()
-    
-    # Run validation
+    # Run validation (rich logging handles the display)
     results = validate_csv(
         input_path=str(input_path),
         output_path=str(output_path),
@@ -104,35 +100,41 @@ def main():
         limit=args.limit,
         output_format=args.format,
         skip_existing=not args.no_skip,
-        parallel=args.parallel
+        parallel=args.parallel,
+        batch_size=args.batch_size
     )
     
-    # Generate and print summary
+    # Generate and print detailed correction summary
     summary = generate_summary_report(results)
     
-    print()
-    print("=" * 60)
-    print("VALIDATION SUMMARY")
-    print("=" * 60)
-    print(f"Total rows processed:     {summary['total_rows']}")
-    print(f"Rows with corrections:    {summary['rows_with_corrections']}")
-    print(f"Rows without corrections: {summary['rows_without_corrections']}")
-    print(f"Correction rate:          {summary['correction_rate']}")
-    print()
+    # Import rich components for final summary
+    from rich.console import Console
+    from rich.table import Table
+    from rich import box
+    
+    console = Console()
     
     if summary['corrections_by_column']:
-        print("Corrections by column:")
-        print("-" * 30)
+        table = Table(
+            title="📋 Corrections by Column",
+            box=box.ROUNDED,
+            border_style="yellow"
+        )
+        table.add_column("Column", style="cyan", no_wrap=True)
+        table.add_column("Count", style="yellow", justify="right")
+        table.add_column("Rate", style="dim", justify="right")
+        
         for col, count in sorted(summary['corrections_by_column'].items(), key=lambda x: -x[1]):
-            pct = (count / summary['total_rows'] * 100)
-            print(f"  {col:25} {count:5} ({pct:.1f}%)")
-    else:
-        print("No corrections were made.")
+            pct = (count / summary['total_rows'] * 100) if summary['total_rows'] > 0 else 0
+            table.add_row(col, str(count), f"{pct:.1f}%")
+        
+        console.print()
+        console.print(table)
     
-    print()
-    print("=" * 60)
-    print(f"Results saved to: {output_path}")
-    print("=" * 60)
+    # Final stats
+    console.print()
+    console.print(f"[dim]Correction rate: [yellow]{summary['correction_rate']}[/] "
+                  f"({summary['rows_with_corrections']}/{summary['total_rows']} rows)[/]")
 
 
 if __name__ == "__main__":

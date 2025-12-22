@@ -8,6 +8,7 @@ L1-L3 hierarchy, Gender, and FoP (Field of Play) classifications.
 import json
 import csv
 import time
+import shutil
 from pathlib import Path
 from dataclasses import dataclass, asdict
 from typing import Optional
@@ -15,6 +16,27 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from openai import OpenAI
 from dotenv import load_dotenv
 import os
+
+from rich.console import Console
+from rich.progress import Progress, SpinnerColumn, TextColumn, BarColumn, TaskProgressColumn, TimeElapsedColumn, TimeRemainingColumn
+from rich.panel import Panel
+from rich.table import Table
+from rich.live import Live
+from rich.layout import Layout
+from rich import box
+from rich.text import Text
+from rich.logging import RichHandler
+import logging
+
+# Setup rich console and logging
+console = Console()
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(message)s",
+    handlers=[RichHandler(console=console, rich_tracebacks=True, show_time=True, show_path=False)]
+)
+logger = logging.getLogger("validator")
 
 # Load environment variables
 env_path = Path(__file__).resolve().parent.parent / ".env"
@@ -385,7 +407,8 @@ def validate_csv(
     limit: Optional[int] = None,
     output_format: str = "json",
     skip_existing: bool = True,
-    parallel: int = 1
+    parallel: int = 1,
+    batch_size: int = 10
 ) -> list[ValidationResult]:
     """
     Validate all rows in a CSV file.
@@ -398,12 +421,20 @@ def validate_csv(
         output_format: Output format - "json" or "csv"
         skip_existing: If True, skip items already in output file (default: True)
         parallel: Number of parallel workers (1 = sequential, >1 = parallel)
+        batch_size: Save progress every N rows (default: 10, 0 = save only at end)
     
     Returns:
         List of ValidationResult objects
     """
     client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
     classification_docs = load_classification_docs()
+    
+    # Display startup panel
+    console.print(Panel.fit(
+        f"[bold cyan]🚀 LLM-Based Data Validation[/]\n"
+        f"[dim]Model: {model} | Format: {output_format} | Batch: {batch_size}[/]",
+        border_style="cyan"
+    ))
     
     # Load existing results if skip_existing is enabled
     existing_keys = set()
@@ -412,7 +443,7 @@ def validate_csv(
         existing_keys = load_existing_results(output_path, output_format)
         if existing_keys:
             existing_results = load_existing_results_data(output_path, output_format)
-            print(f"Found {len(existing_keys)} existing results. Skipping already processed items.")
+            logger.info(f"Found [cyan]{len(existing_keys)}[/] existing results - will skip these")
     
     results = []
     
@@ -428,96 +459,169 @@ def validate_csv(
         skipped_count = len(rows) - len(rows_to_process)
         
         if skipped_count > 0:
-            print(f"Skipping {skipped_count} already processed items.")
+            logger.info(f"Skipping [yellow]{skipped_count}[/] already processed items")
         
         total = len(rows_to_process)
         if total == 0:
-            print("All items already processed. Nothing to do.")
-            # Return existing results converted to ValidationResult objects
+            console.print(Panel("[green]✓ All items already processed. Nothing to do.[/]", border_style="green"))
             return [dict_to_validation_result(r) for r in existing_results]
         
-        # Timing tracking
+        # Tracking variables
         start_time = time.time()
-        row_times = []
+        corrections_count = 0
+        errors_count = 0
+        batch_num = 0
+        unsaved_results = []
         
         if parallel > 1:
-            # Parallel processing
-            print(f"🚀 Running with {parallel} parallel workers...")
-            results = process_rows_parallel(
-                client, rows_to_process, classification_docs, model, parallel
-            )
-            row_times = [2.0] * len(results)  # Approximate for parallel
+            # Parallel processing with rich progress
+            console.print(f"\n[bold magenta]🚀 Running with {parallel} parallel workers...[/]\n")
+            
+            with Progress(
+                SpinnerColumn(),
+                TextColumn("[progress.description]{task.description}"),
+                BarColumn(bar_width=40),
+                TaskProgressColumn(),
+                TimeElapsedColumn(),
+                TimeRemainingColumn(),
+                console=console
+            ) as progress:
+                task = progress.add_task("[cyan]Validating...", total=total)
+                
+                results = process_rows_parallel(
+                    client, rows_to_process, classification_docs, model, parallel
+                )
+                
+                progress.update(task, completed=total)
+            
+            # Count corrections and errors
+            for r in results:
+                if "ERROR" in r.corrected_columns:
+                    errors_count += 1
+                elif r.corrected_columns:
+                    corrections_count += 1
+            
+            # Save all at once for parallel mode (batching is complex with parallel)
+            all_results_data = existing_results + [r.to_dict() for r in results]
+            save_results_atomic(all_results_data, output_path, output_format)
+            logger.info(f"💾 Saved [cyan]{len(all_results_data)}[/] total rows")
+            
         else:
-            # Sequential processing
-            for i, row in enumerate(rows_to_process, 1):
-                row_start = time.time()
-                print(f"Processing row {i}/{total}: {row.get('item_key', '')[:50]}...")
-                try:
-                    result = validate_row(client, row, classification_docs, model)
-                    results.append(result)
-                    row_elapsed = time.time() - row_start
-                    row_times.append(row_elapsed)
+            # Sequential processing with rich progress and batch saving
+            console.print(f"\n[bold blue]📋 Processing {total} rows sequentially...[/]\n")
+            
+            with Progress(
+                SpinnerColumn(),
+                TextColumn("[progress.description]{task.description}"),
+                BarColumn(bar_width=40),
+                TaskProgressColumn(),
+                TextColumn("•"),
+                TimeElapsedColumn(),
+                TextColumn("•"),
+                TimeRemainingColumn(),
+                console=console,
+                refresh_per_second=4
+            ) as progress:
+                task = progress.add_task("[cyan]Validating rows", total=total)
+                
+                for i, row in enumerate(rows_to_process, 1):
+                    row_start = time.time()
+                    item_key = row.get('item_key', '')[:35]
                     
-                    # Calculate stats
-                    avg_time = sum(row_times) / len(row_times)
-                    remaining = total - i
-                    eta_seconds = avg_time * remaining
-                    eta_formatted = format_duration(eta_seconds)
+                    progress.update(task, description=f"[cyan]Row {i}/{total}: {item_key}...")
                     
-                    print(f"  ✓ Completed in {row_elapsed:.2f}s | Avg: {avg_time:.2f}s | ETA: {eta_formatted}")
+                    try:
+                        result = validate_row(client, row, classification_docs, model)
+                        results.append(result)
+                        unsaved_results.append(result)
+                        
+                        row_elapsed = time.time() - row_start
+                        
+                        # Track corrections
+                        if result.corrected_columns:
+                            corrections_count += 1
+                            console.print(f"  [yellow]⚡[/] Row {i}: [yellow]{len(result.corrected_columns)} correction(s)[/] - {', '.join(result.corrected_columns)}")
+                        else:
+                            console.print(f"  [green]✓[/] Row {i}: [dim]No corrections needed[/] ({row_elapsed:.2f}s)")
+                        
+                    except Exception as e:
+                        row_elapsed = time.time() - row_start
+                        errors_count += 1
+                        console.print(f"  [red]✗[/] Row {i}: [red]Error[/] - {str(e)[:50]}...")
+                        
+                        # Create error result
+                        error_result = ValidationResult(
+                            item_key=row.get("item_key", ""),
+                            merchant=row.get("merchant", ""),
+                            web_categories=row.get("web_categories", ""),
+                            l1=row.get("l1"),
+                            l2=row.get("l2"),
+                            l3=row.get("l3"),
+                            gender=row.get("gender"),
+                            primary_fop=row.get("primary_fop"),
+                            sub_sport=row.get("sub_sport"),
+                            l1_validated=None,
+                            l2_validated=None,
+                            l3_validated=None,
+                            gender_validated=None,
+                            primary_fop_validated=None,
+                            sub_sport_validated=None,
+                            corrected_columns=["ERROR"],
+                            reasoning=f"Validation failed: {str(e)}"
+                        )
+                        results.append(error_result)
+                        unsaved_results.append(error_result)
                     
-                except Exception as e:
-                    row_elapsed = time.time() - row_start
-                    row_times.append(row_elapsed)
-                    print(f"  ✗ Error in {row_elapsed:.2f}s: {e}")
-                    # Create error result
-                    error_result = ValidationResult(
-                        item_key=row.get("item_key", ""),
-                        merchant=row.get("merchant", ""),
-                        web_categories=row.get("web_categories", ""),
-                        l1=row.get("l1"),
-                        l2=row.get("l2"),
-                        l3=row.get("l3"),
-                        gender=row.get("gender"),
-                        primary_fop=row.get("primary_fop"),
-                        sub_sport=row.get("sub_sport"),
-                        l1_validated=None,
-                        l2_validated=None,
-                        l3_validated=None,
-                        gender_validated=None,
-                        primary_fop_validated=None,
-                        sub_sport_validated=None,
-                        corrected_columns=["ERROR"],
-                        reasoning=f"Validation failed: {str(e)}"
-                    )
-                    results.append(error_result)
+                    # Batch save logic
+                    if batch_size > 0 and len(unsaved_results) >= batch_size:
+                        batch_num += 1
+                        all_results_data = existing_results + [r.to_dict() for r in results]
+                        save_results_atomic(all_results_data, output_path, output_format)
+                        log_batch_save(batch_num, len(all_results_data), output_path)
+                        unsaved_results = []  # Reset unsaved buffer
+                    
+                    progress.update(task, advance=1)
+            
+            # Final save for any remaining unsaved results
+            if unsaved_results:
+                batch_num += 1
+                all_results_data = existing_results + [r.to_dict() for r in results]
+                save_results_atomic(all_results_data, output_path, output_format)
+                log_batch_save(batch_num, len(all_results_data), output_path)
         
         # Final timing summary
         total_elapsed = time.time() - start_time
         avg_time = total_elapsed / len(results) if results else 0
-        print(f"\n⏱ Timing Summary:")
-        print(f"  Total time: {format_duration(total_elapsed)}")
-        print(f"  Rows processed: {len(results)}")
-        print(f"  Avg time/row: {avg_time:.2f}s")
+        
+        # Create summary table
+        summary_table = Table(title="📊 Validation Summary", box=box.ROUNDED, border_style="cyan")
+        summary_table.add_column("Metric", style="cyan", no_wrap=True)
+        summary_table.add_column("Value", style="green")
+        
+        summary_table.add_row("⏱️ Total Time", format_duration(total_elapsed))
+        summary_table.add_row("📝 Rows Processed", str(len(results)))
+        summary_table.add_row("⏳ Avg Time/Row", f"{avg_time:.2f}s")
+        summary_table.add_row("🔧 Corrections Made", str(corrections_count))
+        summary_table.add_row("❌ Errors", str(errors_count))
+        summary_table.add_row("💾 Batches Saved", str(batch_num))
+        
         if parallel > 1:
-            print(f"  Parallel workers: {parallel}")
-            print(f"  Effective throughput: {len(results) / total_elapsed:.2f} rows/s" if total_elapsed > 0 else "")
+            summary_table.add_row("🚀 Parallel Workers", str(parallel))
+            if total_elapsed > 0:
+                summary_table.add_row("📈 Throughput", f"{len(results) / total_elapsed:.2f} rows/s")
+        
+        console.print()
+        console.print(summary_table)
     
-    # Combine existing results with new results
-    new_results_data = [r.to_dict() for r in results]
-    all_results_data = existing_results + new_results_data
+    # Final status
+    all_results_data = existing_results + [r.to_dict() for r in results]
     
-    # Save all results
-    if output_format.lower() == "csv":
-        save_results_csv(all_results_data, output_path)
-    else:
-        with open(output_path, "w", encoding="utf-8") as f:
-            json.dump(all_results_data, f, indent=2, ensure_ascii=False)
-    
-    print(f"\nValidation complete. Results saved to: {output_path}")
-    print(f"  - Existing items: {len(existing_results)}")
-    print(f"  - New items processed: {len(results)}")
-    print(f"  - Total items: {len(all_results_data)}")
+    console.print(Panel(
+        f"[bold green]✓ Validation Complete[/]\n\n"
+        f"  📂 Output: [cyan]{output_path}[/]\n"
+        f"  📊 Existing: [dim]{len(existing_results)}[/] | New: [green]{len(results)}[/] | Total: [bold]{len(all_results_data)}[/]",
+        border_style="green"
+    ))
     
     # Return all results as ValidationResult objects
     all_results = [dict_to_validation_result(r) for r in existing_results] + results
@@ -566,6 +670,74 @@ def save_results_csv(results: list[dict], output_path: str) -> None:
         writer = csv.DictWriter(f, fieldnames=fieldnames)
         writer.writeheader()
         writer.writerows(csv_data)
+
+
+def save_results_atomic(
+    all_results_data: list[dict],
+    output_path: str,
+    output_format: str = "json"
+) -> None:
+    """
+    Save results atomically using temp file + rename pattern.
+    This prevents data corruption if the process is interrupted mid-write.
+    """
+    output_file = Path(output_path)
+    temp_path = output_file.with_suffix(output_file.suffix + '.tmp')
+    
+    try:
+        if output_format.lower() == "csv":
+            save_results_csv(all_results_data, str(temp_path))
+        else:
+            with open(temp_path, "w", encoding="utf-8") as f:
+                json.dump(all_results_data, f, indent=2, ensure_ascii=False)
+        
+        # Atomic rename (on POSIX systems this is atomic)
+        shutil.move(str(temp_path), str(output_file))
+        
+    except Exception as e:
+        # Clean up temp file if something went wrong
+        if temp_path.exists():
+            temp_path.unlink()
+        raise e
+
+
+def create_status_table(
+    total_rows: int,
+    processed: int,
+    corrections: int,
+    errors: int,
+    saved: int,
+    batch_size: int,
+    elapsed_time: float
+) -> Table:
+    """Create a rich status table for live display."""
+    table = Table(box=box.ROUNDED, show_header=False, padding=(0, 1))
+    table.add_column("Metric", style="cyan")
+    table.add_column("Value", style="green")
+    
+    avg_time = elapsed_time / processed if processed > 0 else 0
+    remaining = total_rows - processed
+    eta = avg_time * remaining
+    
+    table.add_row("📊 Total Rows", str(total_rows))
+    table.add_row("✅ Processed", f"{processed}/{total_rows}")
+    table.add_row("🔧 Corrections", str(corrections))
+    table.add_row("❌ Errors", str(errors))
+    table.add_row("💾 Last Saved", f"{saved} rows")
+    table.add_row("📦 Batch Size", str(batch_size))
+    table.add_row("⏱️ Elapsed", format_duration(elapsed_time))
+    table.add_row("⏳ ETA", format_duration(eta) if processed > 0 else "calculating...")
+    table.add_row("📈 Avg/Row", f"{avg_time:.2f}s" if processed > 0 else "-")
+    
+    return table
+
+
+def log_batch_save(batch_num: int, saved_count: int, output_path: str) -> None:
+    """Log a batch save event with rich formatting."""
+    console.print(
+        f"  💾 [bold green]Batch {batch_num}[/] saved: "
+        f"[cyan]{saved_count}[/] total rows → [dim]{output_path}[/]"
+    )
 
 
 def validate_rows(rows: list[dict], model: str = "gpt-4o") -> list[dict]:
@@ -628,6 +800,7 @@ if __name__ == "__main__":
     parser.add_argument("--limit", "-l", type=int, default=None, help="Limit number of rows to process")
     parser.add_argument("--no-skip", action="store_true", help="Reprocess all items, don't skip existing")
     parser.add_argument("--parallel", "-p", type=int, default=1, help="Number of parallel workers (default: 1 = sequential)")
+    parser.add_argument("--batch-size", "-b", type=int, default=10, help="Save progress every N rows (default: 10, 0 = save only at end)")
     
     args = parser.parse_args()
     
@@ -643,17 +816,34 @@ if __name__ == "__main__":
         limit=args.limit,
         output_format=args.format,
         skip_existing=not args.no_skip,
-        parallel=args.parallel
+        parallel=args.parallel,
+        batch_size=args.batch_size
     )
     
-    # Print summary
+    # Print detailed correction summary
     summary = generate_summary_report(results)
-    print("\n=== Validation Summary ===")
-    print(f"Total rows processed: {summary['total_rows']}")
-    print(f"Rows with corrections: {summary['rows_with_corrections']}")
-    print(f"Rows without corrections: {summary['rows_without_corrections']}")
-    print(f"Correction rate: {summary['correction_rate']}")
-    print("\nCorrections by column:")
-    for col, count in sorted(summary['corrections_by_column'].items(), key=lambda x: -x[1]):
-        print(f"  {col}: {count}")
+    
+    if summary['corrections_by_column']:
+        from rich.table import Table
+        from rich import box
+        
+        table = Table(
+            title="📋 Corrections by Column",
+            box=box.ROUNDED,
+            border_style="yellow"
+        )
+        table.add_column("Column", style="cyan", no_wrap=True)
+        table.add_column("Count", style="yellow", justify="right")
+        table.add_column("Rate", style="dim", justify="right")
+        
+        for col, count in sorted(summary['corrections_by_column'].items(), key=lambda x: -x[1]):
+            pct = (count / summary['total_rows'] * 100) if summary['total_rows'] > 0 else 0
+            table.add_row(col, str(count), f"{pct:.1f}%")
+        
+        console.print()
+        console.print(table)
+    
+    console.print()
+    console.print(f"[dim]Correction rate: [yellow]{summary['correction_rate']}[/] "
+                  f"({summary['rows_with_corrections']}/{summary['total_rows']} rows)[/]")
 
