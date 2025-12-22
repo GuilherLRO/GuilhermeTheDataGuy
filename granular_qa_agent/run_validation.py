@@ -20,6 +20,12 @@ Usage:
     
     # Force reprocess all items (ignore existing output)
     python run_validation.py --no-skip
+    
+    # Run with 4 parallel workers (faster)
+    python run_validation.py --parallel 4 --limit 20
+    
+    # Combine options
+    python run_validation.py -m gpt-4o-mini -p 5 -l 50 -f csv -o results.csv
 """
 
 from pathlib import Path
@@ -63,6 +69,12 @@ def main():
         action="store_true",
         help="Reprocess all items, don't skip existing ones in output file"
     )
+    parser.add_argument(
+        "--parallel", "-p",
+        type=int,
+        default=1,
+        help="Number of parallel workers (default: 1 = sequential)"
+    )
     
     args = parser.parse_args()
     
@@ -80,6 +92,7 @@ def main():
     print(f"Row limit:    {args.limit or 'All rows'}")
     print(f"Format:       {args.format}")
     print(f"Skip existing: {not args.no_skip}")
+    print(f"Parallel:      {args.parallel} worker(s)")
     print("=" * 60)
     print()
     
@@ -90,7 +103,8 @@ def main():
         model=args.model,
         limit=args.limit,
         output_format=args.format,
-        skip_existing=not args.no_skip
+        skip_existing=not args.no_skip,
+        parallel=args.parallel
     )
     
     # Generate and print summary

@@ -7,9 +7,11 @@ L1-L3 hierarchy, Gender, and FoP (Field of Play) classifications.
 
 import json
 import csv
+import time
 from pathlib import Path
 from dataclasses import dataclass, asdict
 from typing import Optional
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from openai import OpenAI
 from dotenv import load_dotenv
 import os
@@ -57,6 +59,20 @@ SUB_SPORT_VALUES = {
     "training": ["cross_training", "yoga", "training_other"],
     "soccer": ["outdoor_soccer", "indoor_soccer"]
 }
+
+
+def format_duration(seconds: float) -> str:
+    """Format seconds into a human-readable duration string."""
+    if seconds < 60:
+        return f"{seconds:.1f}s"
+    elif seconds < 3600:
+        mins = int(seconds // 60)
+        secs = int(seconds % 60)
+        return f"{mins}m {secs}s"
+    else:
+        hours = int(seconds // 3600)
+        mins = int((seconds % 3600) // 60)
+        return f"{hours}h {mins}m"
 
 
 @dataclass
@@ -179,12 +195,18 @@ def validate_row(client: OpenAI, row: dict, classification_docs: str, model: str
     
     prompt = build_validation_prompt(row, classification_docs)
     
-    response = client.chat.completions.create(
-        model=model,
-        messages=[{"role": "user", "content": prompt}],
-        temperature=0.0,  # Deterministic output
-        response_format={"type": "json_object"}
-    )
+    # Build API call parameters
+    api_params = {
+        "model": model,
+        "messages": [{"role": "user", "content": prompt}],
+        "response_format": {"type": "json_object"}
+    }
+    
+    # Only add temperature for models that support it (GPT-5 models don't)
+    if not model.startswith("gpt-5"):
+        api_params["temperature"] = 0.0  # Deterministic output
+    
+    response = client.chat.completions.create(**api_params)
     
     response_text = response.choices[0].message.content.strip()
     
@@ -229,6 +251,65 @@ def validate_row(client: OpenAI, row: dict, classification_docs: str, model: str
     )
     
     return result
+
+
+def process_single_row(args: tuple) -> ValidationResult:
+    """Process a single row - used for parallel execution."""
+    client, row, classification_docs, model, index, total = args
+    try:
+        result = validate_row(client, row, classification_docs, model)
+        print(f"  ✓ [{index}/{total}] {row.get('item_key', '')[:40]}...")
+        return result
+    except Exception as e:
+        print(f"  ✗ [{index}/{total}] Error: {e}")
+        return ValidationResult(
+            item_key=row.get("item_key", ""),
+            merchant=row.get("merchant", ""),
+            web_categories=row.get("web_categories", ""),
+            l1=row.get("l1"),
+            l2=row.get("l2"),
+            l3=row.get("l3"),
+            gender=row.get("gender"),
+            primary_fop=row.get("primary_fop"),
+            sub_sport=row.get("sub_sport"),
+            l1_validated=None,
+            l2_validated=None,
+            l3_validated=None,
+            gender_validated=None,
+            primary_fop_validated=None,
+            sub_sport_validated=None,
+            corrected_columns=["ERROR"],
+            reasoning=f"Validation failed: {str(e)}"
+        )
+
+
+def process_rows_parallel(
+    client: OpenAI,
+    rows: list[dict],
+    classification_docs: str,
+    model: str,
+    max_workers: int
+) -> list[ValidationResult]:
+    """Process rows in parallel using ThreadPoolExecutor."""
+    results = []
+    total = len(rows)
+    
+    # Prepare arguments for each row
+    args_list = [
+        (client, row, classification_docs, model, i, total)
+        for i, row in enumerate(rows, 1)
+    ]
+    
+    with ThreadPoolExecutor(max_workers=max_workers) as executor:
+        # Submit all tasks
+        futures = {executor.submit(process_single_row, args): args[1] for args in args_list}
+        
+        # Collect results as they complete
+        for future in as_completed(futures):
+            result = future.result()
+            results.append(result)
+    
+    return results
 
 
 def load_existing_results(output_path: str, output_format: str = "json") -> set[str]:
@@ -303,7 +384,8 @@ def validate_csv(
     model: str = "gpt-4o",
     limit: Optional[int] = None,
     output_format: str = "json",
-    skip_existing: bool = True
+    skip_existing: bool = True,
+    parallel: int = 1
 ) -> list[ValidationResult]:
     """
     Validate all rows in a CSV file.
@@ -315,6 +397,7 @@ def validate_csv(
         limit: Optional limit on number of rows to process
         output_format: Output format - "json" or "csv"
         skip_existing: If True, skip items already in output file (default: True)
+        parallel: Number of parallel workers (1 = sequential, >1 = parallel)
     
     Returns:
         List of ValidationResult objects
@@ -353,34 +436,72 @@ def validate_csv(
             # Return existing results converted to ValidationResult objects
             return [dict_to_validation_result(r) for r in existing_results]
         
-        for i, row in enumerate(rows_to_process, 1):
-            print(f"Processing row {i}/{total}: {row.get('item_key', '')[:50]}...")
-            try:
-                result = validate_row(client, row, classification_docs, model)
-                results.append(result)
-            except Exception as e:
-                print(f"  Error processing row {i}: {e}")
-                # Create error result
-                error_result = ValidationResult(
-                    item_key=row.get("item_key", ""),
-                    merchant=row.get("merchant", ""),
-                    web_categories=row.get("web_categories", ""),
-                    l1=row.get("l1"),
-                    l2=row.get("l2"),
-                    l3=row.get("l3"),
-                    gender=row.get("gender"),
-                    primary_fop=row.get("primary_fop"),
-                    sub_sport=row.get("sub_sport"),
-                    l1_validated=None,
-                    l2_validated=None,
-                    l3_validated=None,
-                    gender_validated=None,
-                    primary_fop_validated=None,
-                    sub_sport_validated=None,
-                    corrected_columns=["ERROR"],
-                    reasoning=f"Validation failed: {str(e)}"
-                )
-                results.append(error_result)
+        # Timing tracking
+        start_time = time.time()
+        row_times = []
+        
+        if parallel > 1:
+            # Parallel processing
+            print(f"🚀 Running with {parallel} parallel workers...")
+            results = process_rows_parallel(
+                client, rows_to_process, classification_docs, model, parallel
+            )
+            row_times = [2.0] * len(results)  # Approximate for parallel
+        else:
+            # Sequential processing
+            for i, row in enumerate(rows_to_process, 1):
+                row_start = time.time()
+                print(f"Processing row {i}/{total}: {row.get('item_key', '')[:50]}...")
+                try:
+                    result = validate_row(client, row, classification_docs, model)
+                    results.append(result)
+                    row_elapsed = time.time() - row_start
+                    row_times.append(row_elapsed)
+                    
+                    # Calculate stats
+                    avg_time = sum(row_times) / len(row_times)
+                    remaining = total - i
+                    eta_seconds = avg_time * remaining
+                    eta_formatted = format_duration(eta_seconds)
+                    
+                    print(f"  ✓ Completed in {row_elapsed:.2f}s | Avg: {avg_time:.2f}s | ETA: {eta_formatted}")
+                    
+                except Exception as e:
+                    row_elapsed = time.time() - row_start
+                    row_times.append(row_elapsed)
+                    print(f"  ✗ Error in {row_elapsed:.2f}s: {e}")
+                    # Create error result
+                    error_result = ValidationResult(
+                        item_key=row.get("item_key", ""),
+                        merchant=row.get("merchant", ""),
+                        web_categories=row.get("web_categories", ""),
+                        l1=row.get("l1"),
+                        l2=row.get("l2"),
+                        l3=row.get("l3"),
+                        gender=row.get("gender"),
+                        primary_fop=row.get("primary_fop"),
+                        sub_sport=row.get("sub_sport"),
+                        l1_validated=None,
+                        l2_validated=None,
+                        l3_validated=None,
+                        gender_validated=None,
+                        primary_fop_validated=None,
+                        sub_sport_validated=None,
+                        corrected_columns=["ERROR"],
+                        reasoning=f"Validation failed: {str(e)}"
+                    )
+                    results.append(error_result)
+        
+        # Final timing summary
+        total_elapsed = time.time() - start_time
+        avg_time = total_elapsed / len(results) if results else 0
+        print(f"\n⏱ Timing Summary:")
+        print(f"  Total time: {format_duration(total_elapsed)}")
+        print(f"  Rows processed: {len(results)}")
+        print(f"  Avg time/row: {avg_time:.2f}s")
+        if parallel > 1:
+            print(f"  Parallel workers: {parallel}")
+            print(f"  Effective throughput: {len(results) / total_elapsed:.2f} rows/s" if total_elapsed > 0 else "")
     
     # Combine existing results with new results
     new_results_data = [r.to_dict() for r in results]
@@ -506,6 +627,7 @@ if __name__ == "__main__":
     parser.add_argument("--model", "-m", default="gpt-4o", help="OpenAI model to use")
     parser.add_argument("--limit", "-l", type=int, default=None, help="Limit number of rows to process")
     parser.add_argument("--no-skip", action="store_true", help="Reprocess all items, don't skip existing")
+    parser.add_argument("--parallel", "-p", type=int, default=1, help="Number of parallel workers (default: 1 = sequential)")
     
     args = parser.parse_args()
     
@@ -520,7 +642,8 @@ if __name__ == "__main__":
         model=args.model,
         limit=args.limit,
         output_format=args.format,
-        skip_existing=not args.no_skip
+        skip_existing=not args.no_skip,
+        parallel=args.parallel
     )
     
     # Print summary

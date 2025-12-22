@@ -1,0 +1,212 @@
+[
+  {
+    "item_key": "abercrombie_and_fitch_womens_jeans_curve love high rise 90s relaxed jean",
+    "merchant": "abercrombie_and_fitch",
+    "web_categories": "womens > jeans",
+    "l1": "Apparel",
+    "l2": "Bottoms",
+    "l3": "null",
+    "gender": "Women's",
+    "primary_fop": "null",
+    "sub_sport": "null",
+    "l1_validated": null,
+    "l2_validated": null,
+    "l3_validated": null,
+    "gender_validated": null,
+    "primary_fop_validated": null,
+    "sub_sport_validated": null,
+    "corrected_columns": [
+      "ERROR"
+    ],
+    "reasoning": "Validation failed: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.0 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}"
+  },
+  {
+    "item_key": "abercrombie_and_fitch_women's_clearance_bottoms_jeans_abercrombie & fitch_high rise 90s relaxed jean",
+    "merchant": "abercrombie_and_fitch",
+    "web_categories": "women's > clearance > bottoms > jeans",
+    "l1": "Apparel",
+    "l2": "Bottoms",
+    "l3": "Baselayer Bottoms",
+    "gender": "Women's",
+    "primary_fop": "null",
+    "sub_sport": "null",
+    "l1_validated": null,
+    "l2_validated": null,
+    "l3_validated": null,
+    "gender_validated": null,
+    "primary_fop_validated": null,
+    "sub_sport_validated": null,
+    "corrected_columns": [
+      "ERROR"
+    ],
+    "reasoning": "Validation failed: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.0 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}"
+  },
+  {
+    "item_key": "abercrombie_and_fitch_women's_clearance_bottoms_sweatpants_&_leggings_abercrombie & fitch_essential sunday sweatpant",
+    "merchant": "abercrombie_and_fitch",
+    "web_categories": "women's > clearance > bottoms > sweatpants_&_leggings",
+    "l1": "Apparel",
+    "l2": "Bottoms",
+    "l3": "Fleece Bottoms",
+    "gender": "Women's",
+    "primary_fop": "training",
+    "sub_sport": "null",
+    "l1_validated": null,
+    "l2_validated": null,
+    "l3_validated": null,
+    "gender_validated": null,
+    "primary_fop_validated": null,
+    "sub_sport_validated": null,
+    "corrected_columns": [
+      "ERROR"
+    ],
+    "reasoning": "Validation failed: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.0 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}"
+  },
+  {
+    "item_key": "abercrombie_and_fitch_women's_bottoms_jeans_relaxed_jeans_abercrombie & fitch_high rise 90s relaxed jean",
+    "merchant": "abercrombie_and_fitch",
+    "web_categories": "women's > bottoms > jeans > relaxed_jeans",
+    "l1": "Apparel",
+    "l2": "Bottoms",
+    "l3": "Other Bottoms",
+    "gender": "Women's",
+    "primary_fop": "null",
+    "sub_sport": "null",
+    "l1_validated": null,
+    "l2_validated": null,
+    "l3_validated": null,
+    "gender_validated": null,
+    "primary_fop_validated": null,
+    "sub_sport_validated": null,
+    "corrected_columns": [
+      "ERROR"
+    ],
+    "reasoning": "Validation failed: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.0 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}"
+  },
+  {
+    "item_key": "abercrombie_and_fitch_women's_bottoms_jeans_relaxed_jeans_abercrombie & fitch_curve love high rise 90s relaxed jean",
+    "merchant": "abercrombie_and_fitch",
+    "web_categories": "women's > bottoms > jeans > relaxed_jeans",
+    "l1": "Apparel",
+    "l2": "Bottoms",
+    "l3": "Pants",
+    "gender": "Women's",
+    "primary_fop": "sportswear",
+    "sub_sport": "null",
+    "l1_validated": null,
+    "l2_validated": null,
+    "l3_validated": null,
+    "gender_validated": null,
+    "primary_fop_validated": null,
+    "sub_sport_validated": null,
+    "corrected_columns": [
+      "ERROR"
+    ],
+    "reasoning": "Validation failed: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.0 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}"
+  },
+  {
+    "item_key": "abercrombie_and_fitch_women's_bottoms_shorts_denim_shorts_abercrombie & fitch_curve love high rise dad short",
+    "merchant": "abercrombie_and_fitch",
+    "web_categories": "women's > bottoms > shorts > denim_shorts",
+    "l1": "Apparel",
+    "l2": "Bottoms",
+    "l3": "Shorts",
+    "gender": "Women's",
+    "primary_fop": "cheer_dance",
+    "sub_sport": "null",
+    "l1_validated": null,
+    "l2_validated": null,
+    "l3_validated": null,
+    "gender_validated": null,
+    "primary_fop_validated": null,
+    "sub_sport_validated": null,
+    "corrected_columns": [
+      "ERROR"
+    ],
+    "reasoning": "Validation failed: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.0 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}"
+  },
+  {
+    "item_key": "abercrombie_and_fitch_women's_bottoms_skirts_the_a&f_scarlett_mini_skort_abercrombie & fitch_the a&f scarlett mini skort",
+    "merchant": "abercrombie_and_fitch",
+    "web_categories": "women's > bottoms > skirts > the_a&f_scarlett_mini_skort",
+    "l1": "Apparel",
+    "l2": "Bottoms",
+    "l3": "Skirts",
+    "gender": "Women's",
+    "primary_fop": "cheer_dance",
+    "sub_sport": "null",
+    "l1_validated": null,
+    "l2_validated": null,
+    "l3_validated": null,
+    "gender_validated": null,
+    "primary_fop_validated": null,
+    "sub_sport_validated": null,
+    "corrected_columns": [
+      "ERROR"
+    ],
+    "reasoning": "Validation failed: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.0 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}"
+  },
+  {
+    "item_key": "abercrombie_and_fitch_women's_clearance_intimates_&_sleepwear_next_to_naked_triangle_bralette_abercrombie & fitch_next to naked triangle bralette",
+    "merchant": "abercrombie_and_fitch",
+    "web_categories": "women's > clearance > intimates_&_sleepwear > next_to_naked_triangle_bralette",
+    "l1": "Apparel",
+    "l2": "Bras",
+    "l3": "null",
+    "gender": "Women's",
+    "primary_fop": "rugby",
+    "sub_sport": "null",
+    "l1_validated": null,
+    "l2_validated": null,
+    "l3_validated": null,
+    "gender_validated": null,
+    "primary_fop_validated": null,
+    "sub_sport_validated": null,
+    "corrected_columns": [
+      "ERROR"
+    ],
+    "reasoning": "Validation failed: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.0 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}"
+  },
+  {
+    "item_key": "abercrombie_and_fitch_women's_clearance_dresses_&_jumpsuits_traveler_mini_dress_abercrombie & fitch_traveler mini dress",
+    "merchant": "abercrombie_and_fitch",
+    "web_categories": "women's > clearance > dresses_&_jumpsuits > traveler_mini_dress",
+    "l1": "Apparel",
+    "l2": "Dresses",
+    "l3": "null",
+    "gender": "Women's",
+    "primary_fop": "sportswear",
+    "sub_sport": "null",
+    "l1_validated": null,
+    "l2_validated": null,
+    "l3_validated": null,
+    "gender_validated": null,
+    "primary_fop_validated": null,
+    "sub_sport_validated": null,
+    "corrected_columns": [
+      "ERROR"
+    ],
+    "reasoning": "Validation failed: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.0 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}"
+  },
+  {
+    "item_key": "abercrombie_and_fitch_women's_clearance_coats_&_jackets_wool-blend_dad_coat_abercrombie & fitch_wool-blend dad coat",
+    "merchant": "abercrombie_and_fitch",
+    "web_categories": "women's > clearance > coats_&_jackets > wool-blend_dad_coat",
+    "l1": "Apparel",
+    "l2": "Jackets & Outerwear",
+    "l3": "null",
+    "gender": "Men's",
+    "primary_fop": "sportswear",
+    "sub_sport": "null",
+    "l1_validated": null,
+    "l2_validated": null,
+    "l3_validated": null,
+    "gender_validated": null,
+    "primary_fop_validated": null,
+    "sub_sport_validated": null,
+    "corrected_columns": [
+      "ERROR"
+    ],
+    "reasoning": "Validation failed: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.0 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}"
+  }
+]
