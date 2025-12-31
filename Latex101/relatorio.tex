@@ -1,0 +1,122 @@
+\documentclass[12pt,oneside,a4paper]{abntex2}
+
+\usepackage[brazil]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{hyperref}
+
+\usepackage{csquotes}
+% Bibliografia automática via biblatex+biber
+% Se você tiver o pacote biblatex-abnt instalado, pode trocar style=authoryear por style=abnt.
+\usepackage[backend=biber,style=authoryear,sorting=nyt,language=brazil]{biblatex}
+\addbibresource{referencias.bib}
+
+\titulo{Ferramentas Facilitadoras em Pesquisas Científicas\\(Zotero, \LaTeX{}, Scopus e arXiv)}
+\autor{Guilherme Oliveira}
+\data{26 de dezembro de 2025}
+
+\begin{document}
+\maketitle
+
+\section{Zotero (gestão de referências)}
+Nesta etapa foi instalado o Zotero e criada uma biblioteca contendo pelo menos cinco referências relacionadas ao tema de pesquisa.
+Como evidência, a Figura~\ref{fig:zotero} apresenta um \emph{print} da tela do Zotero com as referências adicionadas (substitua o placeholder pela captura real antes de entregar).
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{figs/zotero_print.png}
+    \caption{Comprovação de adição de referências no Zotero (print da tela).}
+    \label{fig:zotero}
+\end{figure}
+
+\section{Integração \LaTeX{} + Bib\TeX{} (referências automáticas)}
+A partir da biblioteca do Zotero, as referências foram exportadas em formato \texttt{BibTeX} e associadas ao presente documento.
+O uso de gerenciadores de bibliografia permite manter consistência e rastreabilidade das fontes, além de automatizar a formatação da seção de referências.
+No contexto de modelos de linguagem, revisões amplas ajudam a organizar técnicas de pré-treinamento, adaptação e avaliação \cite{Zhao2023SurveyLLM}.
+
+Além disso, arquiteturas baseadas em \emph{transformers} consolidaram-se como o principal alicerce para LLMs modernos \cite{Vaswani2017Attention}.
+Modelos pré-treinados bidirecionais como o BERT mostraram ganhos expressivos em tarefas de PLN por meio de pré-treinamento e ajuste fino \cite{Devlin2019BERT}.
+Para regimes de escalonamento e generalização por poucos exemplos, trabalhos como o GPT-3 destacam a importância do tamanho do modelo e do conjunto de dados \cite{Brown2020GPT3}.
+
+Quando o objetivo envolve respostas ancoradas em evidências externas, o paradigma de \emph{Retrieval-Augmented Generation} (RAG) torna-se central.
+A formulação original integra recuperação e geração para tarefas intensivas em conhecimento \cite{Lewis2020RAG}, e sínteses recentes organizam variações arquiteturais, melhorias de robustez e lacunas abertas \cite{Sharma2025RAGSurvey}.
+Essas referências, gerenciadas via \texttt{.bib}, são citadas ao longo do texto e a bibliografia é gerada automaticamente na Seção~\ref{sec:ref}.
+
+\subsection{Equação (exemplo)}
+Como exemplo de conteúdo matemático, a Equação~\ref{eq:f1} apresenta a métrica $F_1$, comum em avaliação de recuperação/extração em sistemas RAG:
+\begin{equation}
+F_1 = \frac{2 \cdot \text{Precis\~ao} \cdot \text{Revoca\c{c}\~ao}}{\text{Precis\~ao} + \text{Revoca\c{c}\~ao}}.
+\label{eq:f1}
+\end{equation}
+
+\subsection{Tabela (exemplo)}
+A Tabela~\ref{tab:artigos} resume os dois artigos selecionados no arXiv (um de 2025 e outro de pelo menos dois anos antes), além de uma justificativa curta para sua relevância.
+
+\begin{table}[H]
+\centering
+\caption{Artigos selecionados no arXiv e justificativa.}
+\label{tab:artigos}
+\begin{tabular}{p{3.5cm}p{2.2cm}p{8.0cm}}
+\toprule
+Referência & Ano & Comentário \\
+\midrule
+\textcite{Sharma2025RAGSurvey} & 2025 & Survey abrangente sobre arquiteturas RAG, melhorias e robustez; útil para mapear o estado da arte recente.\\
+\textcite{Zhao2023SurveyLLM} & 2023 & Survey consolidado de LLMs cobrindo pré-treinamento, adaptação, uso e avaliação; base conceitual ampla.\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Figura (exemplo)}
+A Figura~\ref{fig:exemplo} é uma figura de exemplo (placeholder) apenas para cumprir o requisito de figura no documento.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{figs/figura_exemplo.png}
+    \caption{Figura de exemplo (substituível por outra imagem relevante).}
+    \label{fig:exemplo}
+\end{figure}
+
+\section{SCOPUS (busca com AND e resultados gráficos)}
+Na plataforma Scopus, foi realizada uma busca utilizando o conectivo \texttt{AND} entre palavras-chave do tema de pesquisa.
+Em seguida, na aba de análise/gráficos (\emph{analyze search results}), foram capturados três gráficos considerados mais informativos para caracterizar a busca (por exemplo: distribuição por ano, por área, por país/instituição).
+
+\textbf{Importante:} substitua as figuras placeholder abaixo por prints reais dos gráficos da sua busca no Scopus antes de entregar.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{figs/scopus_grafico1.png}
+    \caption{SCOPUS: gráfico 1 (placeholder).}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{figs/scopus_grafico2.png}
+    \caption{SCOPUS: gráfico 2 (placeholder).}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{figs/scopus_grafico3.png}
+    \caption{SCOPUS: gráfico 3 (placeholder).}
+\end{figure}
+
+\section{arXiv (busca, seleção de artigos e busca no Google)}
+No arXiv, foram selecionados dois artigos resultantes de uma busca por palavras-chave do tema: um artigo de 2025 \cite{Sharma2025RAGSurvey} e outro com pelo menos dois anos de antecedência \cite{Zhao2023SurveyLLM}.
+O primeiro contribui ao sintetizar avanços recentes em sistemas RAG e suas variações \cite{Sharma2025RAGSurvey}, enquanto o segundo oferece uma visão estrutural do ecossistema de LLMs, servindo como referência-base para situar o problema de pesquisa \cite{Zhao2023SurveyLLM}.
+
+Em uma busca no Google com os títulos dos artigos, observou-se que os mesmos trabalhos aparecem em \emph{plataformas agregadoras} além do arXiv, como bases bibliográficas (ex.: DBLP) e repositórios de discussão/curadoria (ex.: páginas de papers no Hugging Face).
+Isso sugere que o arXiv atua como fonte primária de disseminação para muitas versões \emph{preprint}, e que outras plataformas frequentemente \emph{indexam} o conteúdo a partir do identificador/DOI do arXiv, sem necessariamente existir uma versão idêntica publicada em editoras como IEEE/Elsevier/MDPI.
+
+\section{Conclusões}
+O fluxo Zotero $\rightarrow$ exportação Bib\TeX{} $\rightarrow$ compilação \LaTeX{} torna a gestão de referências reprodutível e menos sujeita a erros manuais.
+Já as plataformas Scopus e arXiv complementam o processo: a Scopus fornece métricas/recortes bibliométricos (via gráficos) e o arXiv amplia o acesso rápido a preprints recentes.
+Por fim, a busca cruzada no Google ajuda a verificar a disponibilidade do mesmo trabalho em diferentes indexadores e portais, evidenciando a importância de distinguir \emph{versões preprint} de \emph{versões publicadas}.
+
+\section{Referências}
+\label{sec:ref}
+\printbibliography
+\end{document}
