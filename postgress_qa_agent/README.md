@@ -310,7 +310,7 @@ shares AS (
            SUM(d.gmv) * 100.0 / t.total_gmv as share
     FROM filtered_data d
     JOIN totals t ON d.source = t.source
-    GROUP BY d.merchant, d.source
+    GROUP BY d.merchant, d.source, t.total_gmv
 )
 SELECT 
     merchant,
