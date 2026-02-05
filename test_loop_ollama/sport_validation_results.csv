@@ -1,0 +1,107 @@
+item_key,item,web_categories,possible_sport,merchant,Trial,Validation_Output,Parsed_Answer
+scheels_sneakers & athletic shoes_nike_little kids' nike giannis immortality 4 basketball shoes,little kids' nike giannis immortality 4 basketball shoes,sneakers & athletic shoes,[],scheels,1,"Answer: BASKETBALL SHOES
+Reasoning: The item description explicitly mentions ""basketball shoes"" and the merchant is Scheels, which is a retailer that specializes in sporting goods. Additionally, the Nike Giannis Immortality 4 model is associated with basketball.
+Confidence: High",BASKETBALL SHOES
+scheels_sneakers & athletic shoes_nike_little kids' nike giannis immortality 4 basketball shoes,little kids' nike giannis immortality 4 basketball shoes,sneakers & athletic shoes,[],scheels,2,"Answer: Basketball Shoes
+Reasoning: The item description explicitly mentions ""basketball shoes"" and includes the name of a specific basketball player, Giannis.
+Confidence: High",Basketball Shoes
+scheels_sneakers & athletic shoes_nike_little kids' nike giannis immortality 4 basketball shoes,little kids' nike giannis immortality 4 basketball shoes,sneakers & athletic shoes,[],scheels,3,"Answer: BASKETBALL
+Reasoning: The item description mentions ""basketball shoes"" and the merchant is Scheels, which sells sports equipment including basketball gear. Additionally, the shoe model name includes ""Immortality 4"", which suggests a partnership or endorsement with Giannis Antetokounmpo, a well-known NBA player.
+Confidence: High",BASKETBALL
+scheels_gel kayano 26-11/hdnt/alm,gel kayano 26-11/hdnt/alm,,"[""slides"",""outdoor_sandals"",""sportswear"",""running"",""basketball"",""training"",""soccer"",""hiking"",""ski_snowboard"",""golf"",""tennis"",""american_football"",""baseball"",""lacrosse"",""cheer_dance"",""rugby""]",scheels,1,"Answer: running
+Reasoning: The presence of ""Kayano"" in the item description suggests a connection to Asics, a well-known manufacturer of running shoes. Additionally, the model number (26) and part number (/hdnt/alm) also imply that this is a specific type of running shoe.
+Confidence: High",running
+scheels_gel kayano 26-11/hdnt/alm,gel kayano 26-11/hdnt/alm,,"[""slides"",""outdoor_sandals"",""sportswear"",""running"",""basketball"",""training"",""soccer"",""hiking"",""ski_snowboard"",""golf"",""tennis"",""american_football"",""baseball"",""lacrosse"",""cheer_dance"",""rugby""]",scheels,2,"After analyzing the item description, I have made a determination.
+
+Answer: training
+Reasoning: The presence of ""Gel Kayano"" in the item description suggests that it is a high-performance running shoe. Additionally, the model number (26-11) is specific to certain types of Asics shoes, which are commonly used for training and running.
+Confidence: High",training
+scheels_gel kayano 26-11/hdnt/alm,gel kayano 26-11/hdnt/alm,,"[""slides"",""outdoor_sandals"",""sportswear"",""running"",""basketball"",""training"",""soccer"",""hiking"",""ski_snowboard"",""golf"",""tennis"",""american_football"",""baseball"",""lacrosse"",""cheer_dance"",""rugby""]",scheels,3,"Answer: Running
+Reasoning: The presence of ""Gel Kayano 26"" in the item description is a model of running shoes, specifically designed for long-distance running.
+Confidence: High",Running
+scheels_gel kayano 27-9.5/blk,gel kayano 27-9.5/blk,,"[""walking"",""sportswear"",""running"",""basketball"",""training"",""golf"",""tennis""]",scheels,1,"Answer: running
+Reasoning: The item description includes ""Gel Kayano"", which is a specific model of shoe known for its support and stability, popular among runners. Additionally, the name ""Kayano"" suggests a performance-oriented shoe.
+Confidence: High",running
+scheels_gel kayano 27-9.5/blk,gel kayano 27-9.5/blk,,"[""walking"",""sportswear"",""running"",""basketball"",""training"",""golf"",""tennis""]",scheels,2,"Answer: running
+Reasoning: The item description explicitly mentions ""Gel Kayano"", which is a specific type of shoe commonly used for running. Additionally, the model number (27-9.5) suggests it's a running shoe.
+Confidence: High",running
+scheels_gel kayano 27-9.5/blk,gel kayano 27-9.5/blk,,"[""walking"",""sportswear"",""running"",""basketball"",""training"",""golf"",""tennis""]",scheels,3,"Answer: running
+Reasoning: The item description includes ""Gel Kayano"", which is a well-known model of running shoe produced by Asics. This suggests that the item is specifically designed for running.
+Confidence: High",running
+scheels_targhee iii mid wp-10.5/c,targhee iii mid wp-10.5/c,,"[""walking"",""flip_flops"",""slides"",""outdoor_sandals"",""sportswear"",""running"",""basketball"",""training"",""soccer"",""hiking"",""ski_snowboard"",""golf"",""tennis"",""american_football"",""baseball"",""lacrosse"",""cheer_dance"",""rugby"",""field_hockey""]",scheels,1,"After analyzing the item description, I conclude that the most likely category is:
+
+Answer: hiking
+Reasoning: The presence of ""Targhee"" in the description, which is a brand name associated with outdoor and hiking footwear. Additionally, the model number ""III"" and the mention of ""WP-10.5"", which suggests water resistance and a mid-cut design typical for hiking boots.
+Confidence: High",hiking
+scheels_targhee iii mid wp-10.5/c,targhee iii mid wp-10.5/c,,"[""walking"",""flip_flops"",""slides"",""outdoor_sandals"",""sportswear"",""running"",""basketball"",""training"",""soccer"",""hiking"",""ski_snowboard"",""golf"",""tennis"",""american_football"",""baseball"",""lacrosse"",""cheer_dance"",""rugby"",""field_hockey""]",scheels,2,"After analyzing the item description, I determined that the most specific and relevant category is ""hiking"".
+
+Answer: hiking
+Reasoning: The presence of ""Targhee III Mid WP-10.5"" suggests a hiking boot model from Merrell, which is a well-known outdoor brand often associated with hiking.
+Confidence: High",hiking
+scheels_targhee iii mid wp-10.5/c,targhee iii mid wp-10.5/c,,"[""walking"",""flip_flops"",""slides"",""outdoor_sandals"",""sportswear"",""running"",""basketball"",""training"",""soccer"",""hiking"",""ski_snowboard"",""golf"",""tennis"",""american_football"",""baseball"",""lacrosse"",""cheer_dance"",""rugby"",""field_hockey""]",scheels,3,"After analyzing the item description, I found that it contains the term ""Targhee"" which is a specific brand of outdoor and hiking boots. Given this information, I can confidently identify the most specific category for this item.
+
+Answer: hiking
+Reasoning: The presence of ""Targhee"" in the item description suggests a connection to hiking or outdoor activities.
+Confidence: High",hiking
+scheels_sneakers & athletic shoes_nike_adult nike lebron nxxt gen ampd basketball shoes,adult nike lebron nxxt gen ampd basketball shoes,sneakers & athletic shoes,"[""sportswear"",""running"",""basketball"",""training""]",scheels,1,"Answer: basketball
+Reasoning: The item description explicitly mentions ""basketball shoes"" and is from the Nike LeBron line, which is specifically designed for basketball.
+Confidence: High",basketball
+scheels_sneakers & athletic shoes_nike_adult nike lebron nxxt gen ampd basketball shoes,adult nike lebron nxxt gen ampd basketball shoes,sneakers & athletic shoes,"[""sportswear"",""running"",""basketball"",""training""]",scheels,2,"Answer: basketball
+Reasoning: The item description explicitly mentions ""basketball shoes"" and the merchant is Scheels, which often sells equipment for various sports including basketball.
+Confidence: High",basketball
+scheels_sneakers & athletic shoes_nike_adult nike lebron nxxt gen ampd basketball shoes,adult nike lebron nxxt gen ampd basketball shoes,sneakers & athletic shoes,"[""sportswear"",""running"",""basketball"",""training""]",scheels,3,"Answer: basketball
+Reasoning: The item description explicitly mentions ""basketball shoes"", specifically referencing the Nike LeBron Nxxt Gen Ampd, which is designed for basketball.
+Confidence: High",basketball
+scheels_sneakers & athletic shoes_nike_adult nike lebron nxxt genisus basketball shoes,adult nike lebron nxxt genisus basketball shoes,sneakers & athletic shoes,"[""sportswear"",""running"",""basketball"",""training"",""tennis""]",scheels,1,"Answer: basketball
+Reasoning: The item description explicitly mentions ""basketball shoes"", which clearly indicates the sport.
+Confidence: High",basketball
+scheels_sneakers & athletic shoes_nike_adult nike lebron nxxt genisus basketball shoes,adult nike lebron nxxt genisus basketball shoes,sneakers & athletic shoes,"[""sportswear"",""running"",""basketball"",""training"",""tennis""]",scheels,2,"Answer: basketball
+Reasoning: The item description explicitly mentions ""basketball shoes"" with the brand name Nike Lebron, which strongly indicates it's for playing basketball.
+Confidence: High",basketball
+scheels_sneakers & athletic shoes_nike_adult nike lebron nxxt genisus basketball shoes,adult nike lebron nxxt genisus basketball shoes,sneakers & athletic shoes,"[""sportswear"",""running"",""basketball"",""training"",""tennis""]",scheels,3,"Answer: basketball
+Reasoning: The item description explicitly mentions ""basketball shoes"" and the merchant is scheels, which specializes in sports equipment.
+Confidence: High",basketball
+scheels_clifton 8-7.5/blk/wht,clifton 8-7.5/blk/wht,,"[""walking"",""flip_flops"",""slides"",""outdoor_sandals"",""sportswear"",""running"",""basketball"",""training"",""soccer"",""hiking"",""golf"",""tennis"",""american_football"",""baseball"",""softball"",""lacrosse"",""volleyball"",""cricket"",""cheer_dance"",""rugby"",""field_hockey""]",scheels,1,"After analyzing the item description, I have made a determination.
+
+Answer: sportswear
+Reasoning: The item has a descriptive name with ""Clifton"" and includes size and color information, which is typical of sportswear.
+Confidence: High",sportswear
+scheels_clifton 8-7.5/blk/wht,clifton 8-7.5/blk/wht,,"[""walking"",""flip_flops"",""slides"",""outdoor_sandals"",""sportswear"",""running"",""basketball"",""training"",""soccer"",""hiking"",""golf"",""tennis"",""american_football"",""baseball"",""softball"",""lacrosse"",""volleyball"",""cricket"",""cheer_dance"",""rugby"",""field_hockey""]",scheels,2,"Answer: running
+Reasoning: The item description mentions ""clifton"", which appears to be the name of a specific shoe model by New Balance, known for its running shoes. This suggests that the item is likely related to running.
+Confidence: High",running
+scheels_clifton 8-7.5/blk/wht,clifton 8-7.5/blk/wht,,"[""walking"",""flip_flops"",""slides"",""outdoor_sandals"",""sportswear"",""running"",""basketball"",""training"",""soccer"",""hiking"",""golf"",""tennis"",""american_football"",""baseball"",""softball"",""lacrosse"",""volleyball"",""cricket"",""cheer_dance"",""rugby"",""field_hockey""]",scheels,3,"After reviewing the item description, I have made a determination.
+
+Answer: sportswear
+Reasoning: The description mentions ""clifton"" and provides specific size options (8-7.5/blk/wht), which suggests that this is a shoe designed for athletic purposes, indicating a connection to sportswear.
+Confidence: Medium",sportswear
+"scheels_men's air jordan 11 retro ""legend blue"" shoes","men's air jordan 11 retro ""legend blue"" shoes",,"[""walking"",""sportswear"",""basketball"",""tennis""]",scheels,1,"Answer: sportswear
+Reasoning: The item description mentions ""Air Jordan 11 Retro"" which is a popular basketball shoe line, and the word ""shoes"" indicates a type of footwear commonly associated with sports. Additionally, the merchant Scheels sells sporting goods.
+Confidence: Medium",sportswear
+"scheels_men's air jordan 11 retro ""legend blue"" shoes","men's air jordan 11 retro ""legend blue"" shoes",,"[""walking"",""sportswear"",""basketball"",""tennis""]",scheels,2,"Answer: sportswear
+Reasoning: The item description mentions ""Air Jordan 11 Retro"" shoes, which is a specific model of basketball shoe. However, given the brand and model, it's more accurate to categorize this as sportswear rather than a specific sport like basketball.
+Confidence: High",sportswear
+"scheels_men's air jordan 11 retro ""legend blue"" shoes","men's air jordan 11 retro ""legend blue"" shoes",,"[""walking"",""sportswear"",""basketball"",""tennis""]",scheels,3,"Answer: sportswear
+Reasoning: The item description mentions ""Air Jordan 11 Retro"" which is a specific model of basketball shoes, and more generally, the term ""shoes"" can be classified under sportswear.
+Confidence: High",sportswear
+scheels_sawtooth ii low bdry-10/shdw,sawtooth ii low bdry-10/shdw,,"[""walking"",""flip_flops"",""slides"",""outdoor_sandals"",""sportswear"",""running"",""basketball"",""training"",""soccer"",""hiking"",""ski_snowboard"",""golf"",""tennis"",""american_football"",""baseball"",""softball"",""lacrosse"",""cricket"",""pickleball"",""boxing"",""cheer_dance"",""rugby"",""field_hockey""]",scheels,1,"Answer: ski_snowboard
+Reasoning: The item description mentions ""Sawtooth"" which is a brand name often associated with outdoor winter sports such as skiing and snowboarding. Additionally, the mention of ""Bdry-10/Shdw"" could indicate boundary features or shades that are commonly used in ski equipment.
+Confidence: Medium",ski_snowboard
+scheels_sawtooth ii low bdry-10/shdw,sawtooth ii low bdry-10/shdw,,"[""walking"",""flip_flops"",""slides"",""outdoor_sandals"",""sportswear"",""running"",""basketball"",""training"",""soccer"",""hiking"",""ski_snowboard"",""golf"",""tennis"",""american_football"",""baseball"",""softball"",""lacrosse"",""cricket"",""pickleball"",""boxing"",""cheer_dance"",""rugby"",""field_hockey""]",scheels,2,"After analyzing the item description, I made the following decision:
+
+Answer: ski_snowboard
+Reasoning: The presence of ""Sawtooth II"" in the item name suggests a connection to ski or snowboard equipment. The ""Low Bdry-10/Shdw"" part is likely referring to binding or boot technology.
+Confidence: Medium",ski_snowboard
+scheels_sawtooth ii low bdry-10/shdw,sawtooth ii low bdry-10/shdw,,"[""walking"",""flip_flops"",""slides"",""outdoor_sandals"",""sportswear"",""running"",""basketball"",""training"",""soccer"",""hiking"",""ski_snowboard"",""golf"",""tennis"",""american_football"",""baseball"",""softball"",""lacrosse"",""cricket"",""pickleball"",""boxing"",""cheer_dance"",""rugby"",""field_hockey""]",scheels,3,"After analyzing the item description, I have made my decision.
+
+Answer: Ski_snowboard
+Reasoning: The presence of ""Sawtooth"" in the item name is a strong indicator of a ski or snowboard product. The model number (""II Low Bdry-10/Shdw"") also suggests it's related to skiing or snowboarding.
+Confidence: High",Ski_snowboard
+scheels_sneakers & athletic shoes_nike_nike lebron witness 9 basketball shoes,nike lebron witness 9 basketball shoes,sneakers & athletic shoes,"[""sportswear"",""running"",""basketball"",""training""]",scheels,1,"Answer: basketball
+Reasoning: The item description explicitly mentions ""Nike Lebron Witness 9 Basketball Shoes"", which clearly indicates that the item is specifically designed for the sport of basketball.
+Confidence: High",basketball
+scheels_sneakers & athletic shoes_nike_nike lebron witness 9 basketball shoes,nike lebron witness 9 basketball shoes,sneakers & athletic shoes,"[""sportswear"",""running"",""basketball"",""training""]",scheels,2,"Answer: basketball
+Reasoning: The item description explicitly mentions ""basketball shoes"" and the merchant is Scheels, which typically sells basketball-related gear. The website categories of ""sneakers & athletic shoes"" also support this classification.
+Confidence: High",basketball
+scheels_sneakers & athletic shoes_nike_nike lebron witness 9 basketball shoes,nike lebron witness 9 basketball shoes,sneakers & athletic shoes,"[""sportswear"",""running"",""basketball"",""training""]",scheels,3,"Answer: basketball
+Reasoning: The item description explicitly mentions ""basketball shoes"", which indicates the specific sport of basketball.
+Confidence: High",basketball

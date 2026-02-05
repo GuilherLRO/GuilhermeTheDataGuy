@@ -1,0 +1,112 @@
+merchant,web_categories,item,run_labels,most_common_label,most_common_count,agreement_rate,all_equal,counts_womens,counts_mens,counts_kids,counts_unisex,counts_undetermined
+academy_sports,outdoors > hunting > hunting boots camo clothing + 1 > camo by pattern > mossy oak country dna,muck boot unisex forager country dna tall waterproof hunting boots,Unisex|Unisex|Unisex|Unisex|Unisex,Unisex,5,1.000,True,0,0,0,5,0
+academy_sports,fan shop > ncaa > texas a&m aggies > texas a&m clothing > aggies pullovers + jackets,fanatics women's texas a&m university true classics oversized fleece crew pullover,Womens|Womens|Womens|Womens|Womens,Womens,5,1.000,True,5,0,0,0,0
+academy_sports,fan shop > ncaa > texas a&m aggies > texas a&m clothing > aggies pullovers + jackets,outerstuff kids' texas a&m university statement tie dye pullover hoodie,Kids|Kids|Kids|Kids|Kids,Kids,5,1.000,True,0,0,5,0,0
+academy_sports,outdoors > hunting > hunting boots camo clothing + 1 > camo by pattern > mossy oak country dna,muck forager,Undetermined|Undetermined|Undetermined|Undetermined|Undetermined,Undetermined,5,1.000,True,0,0,0,0,5
+academy_sports,outdoors > hunting > hunting boots camo clothing + 1 > camo by pattern > realtree timber,lacrosse m burly c,Mens|Mens|Undetermined|Undetermined|Mens,Mens,3,0.600,False,0,3,0,0,2
+academy_sports,fan shop > ncaa > texas a&m aggies > texas a&m clothing > aggies pullovers + jackets,adidas women's texas a&m university vault middle seal vintage crew pullover,Womens|Womens|Womens|Womens|Womens,Womens,5,1.000,True,5,0,0,0,0
+academy_sports,fan shop > mlb > st. louis cardinals > st. louis cardinals clothing > cardinals jerseys,nike women's st. louis cardinals official replica jersey,Womens|Womens|Womens|Womens|Womens,Womens,5,1.000,True,5,0,0,0,0
+academy_sports,outdoors > hunting > hunting boots camo clothing + 1 > camo by pattern > realtree timber,laccosse borty c/ 123907099,Undetermined|Undetermined|Mens|Undetermined|Undetermined,Undetermined,4,0.800,False,0,1,0,0,4
+academy_sports,outdoors > hunting > hunting boots camo clothing + 1 > camo by pattern > realtree timber,ur b asser: 9 gs,Unisex|Undetermined|Unisex|Unisex|Unisex,Unisex,4,0.800,False,0,0,0,4,1
+academy_sports,outdoors > hunting > hunting boots camo clothing + 1 > camo by pattern > realtree timber,ua b rsser t 9 gs,Undetermined|Unisex|Undetermined|Undetermined|Unisex,Undetermined,3,0.600,False,0,0,0,2,3
+bass_pro_shops,water sports > flotation > ski vest,xps nylon life jacket,Unisex|Unisex|Undetermined|Unisex|Unisex,Unisex,4,0.800,False,0,0,0,4,1
+bass_pro_shops,water sports > flotation > ski vest,xps platinum neoprene segmented life jacket for men,Mens|Mens|Mens|Mens|Mens,Mens,5,1.000,True,0,5,0,0,0
+bass_pro_shops,water sports > flotation > ski vest,xps neoprene life jacket for youth,Kids|Kids|Kids|Kids|Kids,Kids,5,1.000,True,0,0,5,0,0
+bass_pro_shops,water sports > flotation > ski vest,bass pro shops deluxe hinged life jacket for kids,Kids|Kids|Kids|Kids|Kids,Kids,5,1.000,True,0,0,5,0,0
+bass_pro_shops,water sports > flotation > ski vest,body glove phantom neoprene life vest for ladies,Womens|Womens|Womens|Womens|Womens,Womens,5,1.000,True,5,0,0,0,0
+bass_pro_shops,water sports > flotation > ski vest,defiance dual-sized genoprene life jacket for adults,Unisex|Unisex|Unisex|Undetermined|Undetermined,Unisex,3,0.600,False,0,0,0,3,2
+bass_pro_shops,water sports > flotation > ski vest,body glove method nylon life jacket,Undetermined|Unisex|Unisex|Undetermined|Unisex,Unisex,3,0.600,False,0,0,0,3,2
+bass_pro_shops,water sports > flotation > ski vest,bass pro shops deluxe hinged splash life jacket for kids,Kids|Kids|Kids|Kids|Kids,Kids,5,1.000,True,0,0,5,0,0
+bass_pro_shops,water sports > flotation > ski vest,xps deluxe hinged life jacket for kids,Kids|Kids|Kids|Kids|Kids,Kids,5,1.000,True,0,0,5,0,0
+bass_pro_shops,water sports > flotation > ski vest,bass pro shops neoprene life vest for babies and toddlers,Kids|Kids|Kids|Kids|Kids,Kids,5,1.000,True,0,0,5,0,0
+coastal_farm,vests,berne-apparel-workmans-duck-vest-size-l-color-realtree-edge-model-v812-47589010024,Undetermined|Undetermined|Undetermined|Unisex|Unisex,Undetermined,3,0.600,False,0,0,0,2,3
+dicks_sporting_goods,sports equipment > baseball > baseball gear & equipment > baseball apparel & uniforms > apparel & uniforms,adidas youth triple stripe pull up pants,Kids|Kids|Kids|Kids|Kids,Kids,5,1.000,True,0,0,5,0,0
+dicks_sporting_goods,sports equipment > baseball > baseball gear & equipment > baseball apparel & uniforms > apparel & uniforms,nike boys' vapor select baseball pants,Kids|Kids|Kids|Kids|Kids,Kids,5,1.000,True,0,0,5,0,0
+dicks_sporting_goods,sports equipment > baseball > baseball gear & equipment > baseball apparel & uniforms > apparel & uniforms,nike boys' vapor select piped baseball pants,Kids|Kids|Kids|Kids|Kids,Kids,5,1.000,True,0,0,5,0,0
+dicks_sporting_goods,sports equipment > baseball > baseball gear & equipment > baseball apparel & uniforms > apparel & uniforms,adidas boys' triple stripe traditional baseball pants,Kids|Kids|Kids|Kids|Kids,Kids,5,1.000,True,0,0,5,0,0
+dicks_sporting_goods,sports equipment > baseball > baseball gear & equipment > baseball apparel & uniforms > apparel & uniforms,adidas boys' triple stripe open bottom baseball pants,Kids|Kids|Kids|Kids|Kids,Kids,5,1.000,True,0,0,5,0,0
+dicks_sporting_goods,sports equipment > baseball > baseball gear & equipment > baseball apparel & uniforms > apparel & uniforms,under armour kids' pull up pants w/ belt loops,Kids|Kids|Kids|Kids|Kids,Kids,5,1.000,True,0,0,5,0,0
+dicks_sporting_goods,sports equipment > baseball > baseball gear & equipment > baseball apparel & uniforms > apparel & uniforms,nike boys' swoosh piped dri-fit baseball pants,Kids|Kids|Kids|Kids|Kids,Kids,5,1.000,True,0,0,5,0,0
+dicks_sporting_goods,sports equipment > football > football gear & equipment > football apparel,nike youth recruit integrated 3.0 football pants,Kids|Kids|Kids|Kids|Kids,Kids,5,1.000,True,0,0,5,0,0
+dicks_sporting_goods,sports equipment > baseball > baseball gear & equipment > baseball apparel & uniforms > apparel & uniforms,under armour boys' gameday vanish piped baseball pants,Kids|Kids|Kids|Kids|Kids,Kids,5,1.000,True,0,0,5,0,0
+dicks_sporting_goods,sports equipment > football > football gear & equipment > football apparel,under armour youth game day armour pro integrated football pants,Kids|Kids|Kids|Kids|Kids,Kids,5,1.000,True,0,0,5,0,0
+dollar_general,sports equipment > football > football gear & equipment > football apparel,under armour youth game day armour pro integrated football pants,Kids|Kids|Kids|Kids|Kids,Kids,5,1.000,True,0,0,5,0,0
+dollar_general,sports equipment > football > football gear & equipment > football apparel,nike youth recruit integrated 3.0 football pants,Kids|Kids|Kids|Kids|Kids,Kids,5,1.000,True,0,0,5,0,0
+dollar_general,sports equipment > football > football gear & equipment > football apparel,nike youth 2024 recruit integrated football pants,Kids|Kids|Kids|Kids|Kids,Kids,5,1.000,True,0,0,5,0,0
+dollar_general,sports equipment > football > football gear & equipment > football apparel,under armour youth practice jersey,Kids|Kids|Kids|Kids|Kids,Kids,5,1.000,True,0,0,5,0,0
+dunhams_sports,apparel > socks,cushioned crew socks 6 pack,Unisex|Unisex|Unisex|Unisex|Unisex,Unisex,5,1.000,True,0,0,0,5,0
+dunhams_sports,apparel > socks,under armour training cotton crew,Unisex|Unisex|Unisex|Unisex|Unisex,Unisex,5,1.000,True,0,0,0,5,0
+dunhams_sports,apparel > socks,tck 2-pack soccer socks,Unisex|Unisex|Unisex|Unisex|Unisex,Unisex,5,1.000,True,0,0,0,5,0
+dunhams_sports,apparel > youth > shorts,mj soffe girls' cheerleader shorts,Kids|Kids|Kids|Kids|Kids,Kids,5,1.000,True,0,0,5,0,0
+dunhams_sports,apparel > socks,adidas youth cushioned angle stripe 6-pack crew sock,Kids|Kids|Kids|Kids|Kids,Kids,5,1.000,True,0,0,5,0,0
+dunhams_sports,apparel > socks,adidas m ath cushioned 6 pack crew socks,Unisex|Unisex|Unisex|Unisex|Unisex,Unisex,5,1.000,True,0,0,0,5,0
+dunhams_sports,apparel > socks,puma 6 pack low cut socks,Unisex|Unisex|Unisex|Unisex|Unisex,Unisex,5,1.000,True,0,0,0,5,0
+dunhams_sports,apparel > socks,champion 6 pack crew socks,Unisex|Unisex|Unisex|Unisex|Unisex,Unisex,5,1.000,True,0,0,0,5,0
+dunhams_sports,apparel > youth > shorts,adidas classic 3-stripe short,Kids|Kids|Kids|Kids|Kids,Kids,5,1.000,True,0,0,5,0,0
+dunhams_sports,apparel > youth > shorts,90 degree girls cross over skort,Kids|Kids|Kids|Kids|Kids,Kids,5,1.000,True,0,0,5,0,0
+five_below,other tops,seasonal crewneck sweatshirt,Undetermined|Unisex|Unisex|Unisex|Unisex,Unisex,4,0.800,False,0,0,0,4,1
+five_below,other tops,cozy fleece pullover hoodie,Unisex|Unisex|Unisex|Unisex|Undetermined,Unisex,4,0.800,False,0,0,0,4,1
+five_below,other tops,cozy fleece crewneck,Unisex|Undetermined|Unisex|Unisex|Undetermined,Unisex,3,0.600,False,0,0,0,3,2
+five_below,other tops,juniors christmas top,Womens|Womens|Womens|Womens|Womens,Womens,5,1.000,True,5,0,0,0,0
+five_below,other tops,unisex the grinch dr. seuss™ holiday sweater,Unisex|Unisex|Unisex|Unisex|Unisex,Unisex,5,1.000,True,0,0,0,5,0
+five_below,other tops,juniors seamless v-neck tank top,Womens|Womens|Womens|Womens|Womens,Womens,5,1.000,True,5,0,0,0,0
+five_below,other tops,plaid flannel button-down shirt,Undetermined|Unisex|Undetermined|Unisex|Unisex,Unisex,3,0.600,False,0,0,0,3,2
+five_below,other tops,cute holiday graphic seam sweatshirt,Unisex|Unisex|Unisex|Unisex|Unisex,Unisex,5,1.000,True,0,0,0,5,0
+five_below,other tops,juniors cotton tee,Womens|Womens|Womens|Womens|Womens,Womens,5,1.000,True,5,0,0,0,0
+five_below,other tops,juniors 'positivity' sweatshirt,Womens|Womens|Womens|Womens|Womens,Womens,5,1.000,True,5,0,0,0,0
+jc_penney,sports equipment > football > football gear & equipment > football apparel,under armour 2023 youth gameday integrated football pants,Kids|Kids|Kids|Kids|Kids,Kids,5,1.000,True,0,0,5,0,0
+jc_penney,sports equipment > football > football gear & equipment > football apparel,schutt adult integrated padded shirt,Mens|Mens|Unisex|Unisex|Mens,Mens,3,0.600,False,0,3,0,2,0
+jc_penney,sports equipment > football > football gear & equipment > football apparel,adidas youth integrated padded football shirt,Kids|Kids|Kids|Kids|Kids,Kids,5,1.000,True,0,0,5,0,0
+kohls,sports equipment > baseball > baseball gear & equipment > baseball apparel & uniforms > apparel & uniforms,adidas boys' triple stripe open bottom baseball pants,Kids|Kids|Kids|Kids|Kids,Kids,5,1.000,True,0,0,5,0,0
+kohls,sports equipment > baseball > baseball gear & equipment > baseball apparel & uniforms > apparel & uniforms,under armour kids' pull up pants w/ belt loops,Kids|Kids|Kids|Kids|Kids,Kids,5,1.000,True,0,0,5,0,0
+kohls,sports equipment > football > football gear & equipment > football apparel,adidas youth scorchlight 7 football gloves,Kids|Kids|Kids|Kids|Kids,Kids,5,1.000,True,0,0,5,0,0
+kohls,sports equipment > baseball > baseball gear & equipment > baseball apparel & uniforms > apparel & uniforms,under armour boys' gameday vanish baseball pants,Kids|Kids|Kids|Kids|Kids,Kids,5,1.000,True,0,0,5,0,0
+macys,sports equipment > football > football gear & equipment > football apparel,adidas adult flag football shorts,Mens|Mens|Mens|Mens|Mens,Mens,5,1.000,True,0,5,0,0,0
+macys,sports equipment > baseball > baseball gear & equipment > baseball apparel & uniforms > apparel & uniforms,nike boys' vapor select baseball pants,Kids|Kids|Kids|Kids|Kids,Kids,5,1.000,True,0,0,5,0,0
+macys,sports equipment > football > football gear & equipment > football apparel,under armour youth game day armour pro integrated football pants,Kids|Kids|Kids|Kids|Kids,Kids,5,1.000,True,0,0,5,0,0
+macys,sports equipment > baseball > baseball gear & equipment > baseball apparel & uniforms > apparel & uniforms,nike boy's vapor select elastic baseball pants,Kids|Kids|Kids|Kids|Kids,Kids,5,1.000,True,0,0,5,0,0
+macys,sports equipment > baseball > baseball gear & equipment > baseball apparel & uniforms > apparel & uniforms,adidas boys' triple stripe traditional baseball pants,Kids|Kids|Kids|Kids|Kids,Kids,5,1.000,True,0,0,5,0,0
+murdochs,pets & livestock > dog supplies > dog clothing & boots,dog coat,Undetermined|Undetermined|Undetermined|Undetermined|Undetermined,Undetermined,5,1.000,True,0,0,0,0,5
+murdochs,pets & livestock > dog supplies > dog clothing & boots,comfort dog coat,Undetermined|Undetermined|Undetermined|Undetermined|Undetermined,Undetermined,5,1.000,True,0,0,0,0,5
+murdochs,pets & livestock > dog supplies > dog clothing & boots,plaid dog jacket with solid inside color,Undetermined|Undetermined|Undetermined|Undetermined|Undetermined,Undetermined,5,1.000,True,0,0,0,0,5
+murdochs,pets & livestock > dog supplies > dog clothing & boots,dog chore coat,Undetermined|Undetermined|Undetermined|Undetermined|Undetermined,Undetermined,5,1.000,True,0,0,0,0,5
+murdochs,"clothing, footwear & accessories > kids' clothing > shirts",kids' wyoming license plate dude tee,Kids|Kids|Kids|Kids|Kids,Kids,5,1.000,True,0,0,5,0,0
+murdochs,pets & livestock > dog supplies > dog clothing & boots,durable dog boots,Undetermined|Undetermined|Undetermined|Undetermined|Undetermined,Undetermined,5,1.000,True,0,0,0,0,5
+murdochs,pets & livestock > dog supplies > dog clothing & boots,cotton padded dog coat,Undetermined|Undetermined|Undetermined|Undetermined|Undetermined,Undetermined,5,1.000,True,0,0,0,0,5
+murdochs,"clothing, footwear & accessories > kids' clothing > coats, jackets & vests",kids' new team softshell brand jacket,Kids|Kids|Kids|Kids|Kids,Kids,5,1.000,True,0,0,5,0,0
+murdochs,pets & livestock > dog supplies > dog clothing & boots,300d deluxe reflective dog parka,Undetermined|Undetermined|Undetermined|Undetermined|Undetermined,Undetermined,5,1.000,True,0,0,0,0,5
+murdochs,"clothing, footwear & accessories > kids' clothing > shirts",toddler girls red bandana calf tee,Kids|Kids|Kids|Kids|Kids,Kids,5,1.000,True,0,0,5,0,0
+nordstrom,sports equipment > football > football gear & equipment > football apparel,ythrecruit/b,Mens|Unisex|Mens|Unisex|Undetermined,Mens,2,0.400,False,0,2,0,2,1
+nordstrom,sports equipment > baseball > baseball gear & equipment > baseball apparel & uniforms > apparel & uniforms,ua b camo icon ss:black / / steel,Undetermined|Unisex|Mens|Mens|Undetermined,Undetermined,2,0.400,False,0,2,0,1,2
+nordstrom,sports equipment > baseball > baseball gear & equipment > baseball apparel & uniforms > apparel & uniforms,youth donuttee,Kids|Kids|Kids|Kids|Kids,Kids,5,1.000,True,0,0,5,0,0
+nordstrom,sports equipment > baseball > baseball gear & equipment > baseball apparel & uniforms > apparel & uniforms,uambasebal/b,Undetermined|Mens|Undetermined|Undetermined|Undetermined,Undetermined,4,0.800,False,0,1,0,0,4
+runnings,sporting goods > sporting goods apparel > ice fishing apparel,icearmor™ by clam™ hoodie facemask,Unisex|Unisex|Unisex|Undetermined|Unisex,Unisex,4,0.800,False,0,0,0,4,1
+runnings,sporting goods > sporting goods apparel > ice fishing apparel,"stabilicers® walk ice cleats - black, xl",Unisex|Unisex|Unisex|Undetermined|Undetermined,Unisex,3,0.600,False,0,0,0,3,2
+runnings,sporting goods > sporting goods apparel > summer fishing apparel > rain gear,browning turley cap - black,Undetermined|Undetermined|Undetermined|Unisex|Unisex,Undetermined,3,0.600,False,0,0,0,2,3
+runnings,sporting goods > sporting goods apparel > ice fishing apparel,"stabilicers® walk ice cleats - black, l",Undetermined|Undetermined|Undetermined|Undetermined|Undetermined,Undetermined,5,1.000,True,0,0,0,0,5
+runnings,sporting goods > sporting goods apparel > ice fishing apparel,"stabilicers® walk ice cleats - black, m",Undetermined|Undetermined|Undetermined|Undetermined|Unisex,Undetermined,4,0.800,False,0,0,0,1,4
+runnings,sporting goods > sporting goods apparel > ice fishing apparel,rapala® pom beanie (black with red logo),Unisex|Unisex|Unisex|Unisex|Unisex,Unisex,5,1.000,True,0,0,0,5,0
+runnings,sporting goods > sporting goods apparel > big game hunting apparel > big game hunting jackets,king's camo cover up jacket,Undetermined|Mens|Undetermined|Undetermined|Undetermined,Undetermined,4,0.800,False,0,1,0,0,4
+runnings,sporting goods > sporting goods apparel > big game hunting apparel > big game hunting jackets,gamehide ambush jacket,Mens|Undetermined|Mens|Unisex|Unisex,Mens,2,0.400,False,0,2,0,2,1
+runnings,sporting goods > sporting goods apparel > ice fishing apparel,korkers original ice cleats,Unisex|Undetermined|Undetermined|Undetermined|Undetermined,Undetermined,4,0.800,False,0,0,0,1,4
+runnings,sporting goods > sporting goods apparel > glove,gamehide® hand muff,Unisex|Unisex|Unisex|Unisex|Unisex,Unisex,5,1.000,True,0,0,0,5,0
+sams_club,baby & toddler > training pants,"huggies pull-ups training pants for girls, choose size",Kids|Kids|Kids|Kids|Kids,Kids,5,1.000,True,0,0,5,0,0
+sams_club,baby & toddler > training pants,"pampers easy ups training pants underwear, sizes 2t-6t",Kids|Kids|Kids|Kids|Kids,Kids,5,1.000,True,0,0,5,0,0
+sams_club,baby & toddler > training pants,goodnites nighttime bedwetting underwear for boys (sizes: small - extra large),Kids|Kids|Kids|Kids|Kids,Kids,5,1.000,True,0,0,5,0,0
+sams_club,baby & toddler > training pants,"ninjamas nighttime bedwetting underwear for boys, sizes small - extra large",Kids|Kids|Kids|Kids|Kids,Kids,5,1.000,True,0,0,5,0,0
+sams_club,baby & toddler > training pants,"ninjamas nighttime bedwetting underwear for girls, sizes small-extra large",Kids|Kids|Kids|Kids|Kids,Kids,5,1.000,True,0,0,5,0,0
+sams_club,baby & toddler > training pants,"pampers easy ups training pants for girls, size 2t/3t (152 ct.)",Kids|Kids|Kids|Kids|Kids,Kids,5,1.000,True,0,0,5,0,0
+sams_club,baby & toddler > training pants,pampers underjams bedtime underwear for boys (choose your size),Kids|Kids|Kids|Kids|Kids,Kids,5,1.000,True,0,0,5,0,0
+sams_club,baby & toddler > training pants,pampers underjams bedtime underwear for girls (choose your size),Kids|Kids|Kids|Kids|Kids,Kids,5,1.000,True,0,0,5,0,0
+sams_club,baby & toddler > training pants,seventh generation free & clear training pants (choose your size),Kids|Kids|Kids|Kids|Kids,Kids,5,1.000,True,0,0,5,0,0
+sams_club,baby & toddler > training pants,training pants 2t-3t/18-34lbs,Kids|Kids|Kids|Kids|Kids,Kids,5,1.000,True,0,0,5,0,0
+scheels,sweatpants & joggers,women's nike sportswear club fleece joggers,Womens|Womens|Womens|Womens|Womens,Womens,5,1.000,True,5,0,0,0,0
+scheels,jackets & coats,parka down with it-l/blk,Undetermined|Mens|Undetermined|Undetermined|Undetermined,Undetermined,4,0.800,False,0,1,0,0,4
+scheels,sweatpants & joggers,women's nike sportswear phoenix fleece joggers,Womens|Womens|Womens|Womens|Womens,Womens,5,1.000,True,5,0,0,0,0
+scheels,jackets & coats,vest down swtr-l/birch wht,Mens|Undetermined|Undetermined|Undetermined|Unisex,Undetermined,3,0.600,False,0,1,0,1,3
+scheels,sweatpants & joggers,kids' nike sportswear club fleece joggers,Kids|Kids|Kids|Kids|Kids,Kids,5,1.000,True,0,0,5,0,0
+scheels,jackets & coats,men's kuhl impakt softshell jacket,Mens|Mens|Mens|Mens|Mens,Mens,5,1.000,True,0,5,0,0,0
+scheels,sweatpants & joggers,women's nike sportswear phoenix fleece oversized joggers,Womens|Womens|Womens|Womens|Womens,Womens,5,1.000,True,5,0,0,0,0
+scheels,vests,women's the north face aconcagua 3 vest,Womens|Womens|Womens|Womens|Womens,Womens,5,1.000,True,5,0,0,0,0
+scheels,sweatpants & joggers,men's nike therma-fit sweatpants,Mens|Mens|Mens|Mens|Mens,Mens,5,1.000,True,0,5,0,0,0
+scheels,sweatpants & joggers,jogger nsw club-m/blk/wht,Undetermined|Undetermined|Undetermined|Undetermined|Mens,Undetermined,4,0.800,False,0,1,0,0,4

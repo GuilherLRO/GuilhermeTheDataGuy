@@ -1,0 +1,11 @@
+merchant,web_categories,item,possible_categories,most_common_answer,frequency,consistency_pct,all_answers
+scheels,sneakers & athletic shoes,little kids' nike giannis immortality 4 basketball shoes,,BASKETBALL SHOES,1/3,33.3%,BASKETBALL SHOES(1); Basketball Shoes(1); BASKETBALL(1)
+scheels,,gel kayano 26-11/hdnt/alm,"slides, outdoor_sandals, sportswear, running, basketball, training, soccer, hiking, ski_snowboard, golf, tennis, american_football, baseball, lacrosse, cheer_dance, rugby",running,1/3,33.3%,running(1); training(1); Running(1)
+scheels,,gel kayano 27-9.5/blk,"walking, sportswear, running, basketball, training, golf, tennis",running,3/3,100.0%,running(3)
+scheels,,targhee iii mid wp-10.5/c,"walking, flip_flops, slides, outdoor_sandals, sportswear, running, basketball, training, soccer, hiking, ski_snowboard, golf, tennis, american_football, baseball, lacrosse, cheer_dance, rugby, field_hockey",hiking,3/3,100.0%,hiking(3)
+scheels,sneakers & athletic shoes,adult nike lebron nxxt gen ampd basketball shoes,"sportswear, running, basketball, training",basketball,3/3,100.0%,basketball(3)
+scheels,sneakers & athletic shoes,adult nike lebron nxxt genisus basketball shoes,"sportswear, running, basketball, training, tennis",basketball,3/3,100.0%,basketball(3)
+scheels,,clifton 8-7.5/blk/wht,"walking, flip_flops, slides, outdoor_sandals, sportswear, running, basketball, training, soccer, hiking, golf, tennis, american_football, baseball, softball, lacrosse, volleyball, cricket, cheer_dance, rugby, field_hockey",sportswear,2/3,66.7%,sportswear(2); running(1)
+scheels,,"men's air jordan 11 retro ""legend blue"" shoes","walking, sportswear, basketball, tennis",sportswear,3/3,100.0%,sportswear(3)
+scheels,,sawtooth ii low bdry-10/shdw,"walking, flip_flops, slides, outdoor_sandals, sportswear, running, basketball, training, soccer, hiking, ski_snowboard, golf, tennis, american_football, baseball, softball, lacrosse, cricket, pickleball, boxing, cheer_dance, rugby, field_hockey",ski_snowboard,2/3,66.7%,ski_snowboard(2); Ski_snowboard(1)
+scheels,sneakers & athletic shoes,nike lebron witness 9 basketball shoes,"sportswear, running, basketball, training",basketball,3/3,100.0%,basketball(3)
